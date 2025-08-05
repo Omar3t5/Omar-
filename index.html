@@ -1,1 +1,146 @@
-of
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Omar AL Sayed | صفحتي الشخصية</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      direction: rtl;
+      background: linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #2a5298);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid #00e5ff;
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      font-size: 32px;
+      margin: 10px 0;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #e0f7fa;
+    }
+
+    .contact-btn {
+      display: block;
+      width: 85%;
+      max-width: 300px;
+      margin: 15px auto;
+      padding: 14px;
+      border: 2px solid #00e5ff;
+      border-radius: 30px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 18px;
+      background: transparent;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .contact-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 100%;
+      width: 100%;
+      height: 100%;
+      background: #00e5ff;
+      transition: all 0.4s ease;
+      z-index: -1;
+    }
+
+    .contact-btn:hover::before {
+      right: 0;
+    }
+
+    .contact-btn:hover {
+      color: #003049;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 15px;
+      font-size: 14px;
+      color: #b2ebf2;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <div class="container">
+    <img class="profile-img" src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" alt="Omar's Photo" />
+
+    <h1>Omar AL Sayed</h1>
+    <p>مطور مواقع | صانع محتوى تقني | جاهز لمساعدتك!</p>
+
+    <a class="contact-btn" href="tel:+201002962162">
+      <i class="fas fa-phone"></i> اتصل بي
+    </a>
+
+    <a class="contact-btn" href="https://wa.me/201146591742" target="_blank">
+      <i class="fab fa-whatsapp"></i> واتساب
+    </a>
+
+    <a class="contact-btn" href="mailto:omargabraazz@gmail.com">
+      <i class="fas fa-envelope"></i> البريد الإلكتروني
+    </a>
+
+    <a class="contact-btn" href="https://t.me/o_m_a_r_39" target="_blank">
+      <i class="fab fa-telegram"></i> تيليجرام
+    </a>
+
+    <footer>
+      © جميع الحقوق محفوظة - Omar AL Sayed 2025
+    </footer>
+  </div>
+
+</body>
+</html>
+
