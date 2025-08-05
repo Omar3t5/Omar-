@@ -1,11 +1,11 @@
-
 <!DOCTYPE html>
+
 <html lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Omar AL Sayed Gabr | صفحتي الشخصية</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Omar AL Sayed Gabr | صفحتي الشخصية</title>
+<style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap');
 
     body {
@@ -146,57 +146,95 @@
       width: 40px;
       height: 40px;
     }
-  </style>
+  
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.verified-badge {
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
 </head>
 <body>
-
-  <div class="container">
-    <img class="profile-img" src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" alt="Omar's Photo" />
-
-    <h1>
+<div id="particles-js"></div>
+<div class="container">
+<img alt="Omar's Photo" class="profile-img" src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg"/>
+<h1>
       Omar AL Sayed Gabr
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg"
-           alt="Verified"
-           style="width: 20px; height: 20px; vertical-align: middle; margin-left: 6px;" />
-    </h1>
-
-    <h2>طالب بكلية الهندسة - جامعة الزقازيق</h2>
-    <div class="location"><i class="fas fa-map-marker-alt"></i> مصر</div>
-
-    <div class="bio">
-      طالب بكلية الهندسة، مهتم بتطوير المواقع والتقنية.<br>
+      <img alt="Verified" class="verified-badge" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg" style="width: 20px; height: 20px; vertical-align: middle; margin-left: 6px;"/>
+</h1>
+<h2>طالب بكلية الهندسة - جامعة الزقازيق</h2>
+<div class="location"><i class="fas fa-map-marker-alt"></i> مصر</div>
+<div class="bio">
+      طالب بكلية الهندسة، مهتم بتطوير المواقع والتقنية.<br/>
       أسعى لبناء مستقبل في عالم البرمجة والتكنولوجيا بدافع الشغف والتعلم المستمر.
     </div>
-
-    <div class="buttons">
-      <a href="tel:+201002962162" onclick="playClick()">اتصال مباشر</a>
-      <a href="https://wa.me/201146591742" onclick="playClick()">واتساب</a>
-      <a href="mailto:omargabraazz@gmail.com" onclick="playClick()">البريد الإلكتروني</a>
-      <a href="https://t.me/o_m_a_r_39" onclick="playClick()">تيليجرام</a>
-    </div>
-
-    <div class="quote">
-      “النجاح لا يأتي بالصدفة، بل بصبر، شغف، وخطوات مستمرة نحو الهدف.”<br>
+<div class="buttons">
+<a href="tel:+201002962162" onclick="playClick()">اتصال مباشر</a>
+<a href="https://wa.me/201146591742" onclick="playClick()">واتساب</a>
+<a href="mailto:omargabraazz@gmail.com" onclick="playClick()">البريد الإلكتروني</a>
+<a href="https://t.me/o_m_a_r_39" onclick="playClick()">تيليجرام</a>
+</div>
+<div class="quote">
+      “النجاح لا يأتي بالصدفة، بل بصبر، شغف، وخطوات مستمرة نحو الهدف.”<br/>
       – Omar Gabr
     </div>
-  </div>
-
-  <div class="footer">
-    <img src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" alt="Omar Photo" />
-    <div class="footer-left">
-      <div class="name">Omar AL Sayed Gabr</div>
-      <div class="title">طالب بكلية الهندسة</div>
-    </div>
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=60x60&data=https://wa.me/201146591742" alt="QR Code" />
-  </div>
-
-  <audio id="click-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7746645c7f.mp3?filename=click-124467.mp3" preload="auto"></audio>
-  <script>
+</div>
+<div class="footer">
+<img alt="Omar Photo" src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg"/>
+<div class="footer-left">
+<div class="name">Omar AL Sayed Gabr</div>
+<div class="title">طالب بكلية الهندسة</div>
+</div>
+<img alt="QR Code" class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=60x60&amp;data=https://wa.me/201146591742"/>
+</div>
+<audio id="click-sound" preload="auto" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7746645c7f.mp3?filename=click-124467.mp3"></audio>
+<script>
     function playClick() {
       document.getElementById('click-sound').play();
     }
   </script>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 70 },
+        "color": { "value": "#00e5ff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3 },
+        "line_linked": {
+          "enable": true,
+          "distance": 130,
+          "color": "#00e5ff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": { "enable": true, "speed": 2 }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" }
+        },
+        "modes": {
+          "repulse": { "distance": 100 },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 </body>
 </html>
