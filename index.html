@@ -17,23 +17,27 @@
     body {
       font-family: 'Cairo', sans-serif;
       direction: rtl;
-      background: linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #2a5298);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
       color: white;
       text-align: center;
-      min-height: 100vh;
       overflow-x: hidden;
+      min-height: 100vh;
+      background: url('https://i.postimg.cc/wB50GyR8/1734561223037.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
     }
 
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
     }
 
     .container {
-      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
+      padding: 50px 20px;
       max-width: 800px;
       margin: auto;
     }
@@ -42,20 +46,20 @@
       width: 140px;
       height: 140px;
       border-radius: 50%;
-      border: 4px solid #00e5ff;
+      border: 4px solid white;
       object-fit: cover;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
       margin-bottom: 20px;
+      transition: transform 0.3s ease;
     }
 
     .profile-img:hover {
-      transform: scale(1.05);
+      transform: scale(1.05) rotate(1deg);
     }
 
     h1 {
-      font-size: 32px;
-      margin: 10px 0;
+      font-size: 36px;
+      margin: 20px 0 10px;
     }
 
     p {
@@ -70,7 +74,7 @@
       max-width: 300px;
       margin: 15px auto;
       padding: 14px;
-      border: 2px solid #00e5ff;
+      border: 2px solid white;
       border-radius: 30px;
       color: white;
       font-weight: bold;
@@ -89,7 +93,7 @@
       right: 100%;
       width: 100%;
       height: 100%;
-      background: #00e5ff;
+      background: white;
       transition: all 0.4s ease;
       z-index: -1;
     }
@@ -100,7 +104,7 @@
 
     .contact-btn:hover {
       color: #003049;
-      transform: translateY(-2px);
+      transform: scale(1.05);
     }
 
     footer {
@@ -110,29 +114,28 @@
       color: #b2ebf2;
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
 
   <div class="container">
     <img class="profile-img" src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" alt="Omar's Photo" />
-
     <h1>Omar AL Sayed</h1>
-    <p>مطور مواقع | صانع محتوى تقني | جاهز لمساعدتك!</p>
+    <p>ENG.OMAR AL SAYED</p>
 
-    <a class="contact-btn" href="tel:+201002962162">
+    <a class="contact-btn" href="tel:+201002962162" onclick="playClick()">
       <i class="fas fa-phone"></i> اتصل بي
     </a>
 
-    <a class="contact-btn" href="https://wa.me/201146591742" target="_blank">
+    <a class="contact-btn" href="https://wa.me/201146591742" target="_blank" onclick="playClick()">
       <i class="fab fa-whatsapp"></i> واتساب
     </a>
 
-    <a class="contact-btn" href="mailto:omargabraazz@gmail.com">
+    <a class="contact-btn" href="mailto:omargabraazz@gmail.com" onclick="playClick()">
       <i class="fas fa-envelope"></i> البريد الإلكتروني
     </a>
 
-    <a class="contact-btn" href="https://t.me/o_m_a_r_39" target="_blank">
+    <a class="contact-btn" href="https://t.me/o_m_a_r_39" target="_blank" onclick="playClick()">
       <i class="fab fa-telegram"></i> تيليجرام
     </a>
 
@@ -141,6 +144,11 @@
     </footer>
   </div>
 
+  <audio id="click-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7746645c7f.mp3?filename=click-124467.mp3" preload="auto"></audio>
+  <script>
+    function playClick() {
+      document.getElementById('click-sound').play();
+    }
+  </script>
 </body>
 </html>
-
