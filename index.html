@@ -29,7 +29,17 @@
       border-radius: 50%;
       border: 3px solid #00e5ff;
       object-fit: cover;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      box-shadow: 0 0 20px #00e5ff, 0 0 30px #00e5ff;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px #00e5ff;
+      }
+      to {
+        box-shadow: 0 0 20px #00e5ff, 0 0 30px #00e5ff;
+      }
     }
 
     h1 {
@@ -72,11 +82,24 @@
       text-decoration: none;
       font-weight: bold;
       transition: all 0.3s ease;
+      animation: pulse 2s infinite;
     }
 
     .buttons a:hover {
       background-color: #00e5ff;
       color: #000;
+      transform: scale(1.05);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 5px #00e5ff;
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #00e5ff;
+      }
     }
 
     .quote {
