@@ -1,152 +1,114 @@
-<!DOCTYPE html>
-
-<html lang="ar">
+<!DOCTYPE html><html lang="ar">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Omar AL Sayed Gabr | صفحتي الشخصية</title>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap');
-
-    body {
-      font-family: 'Cairo', sans-serif;
-      background-color: #0c0f15;
-      color: #ffffff;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-
-    .container {
-      padding: 30px 20px;
-      max-width: 500px;
-      margin: auto;
-    }
-
-    .profile-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid #00e5ff;
-      object-fit: cover;
-      box-shadow: 0 0 20px #00e5ff, 0 0 30px #00e5ff;
-      animation: glow 2s infinite alternate;
-    }
-
-    @keyframes glow {
-      from {
-        box-shadow: 0 0 10px #00e5ff;
-      }
-      to {
-        box-shadow: 0 0 20px #00e5ff, 0 0 30px #00e5ff;
-      }
-    }
-
-    h1 {
-      font-size: 26px;
-      margin: 15px 0 5px;
-      color: #00e5ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    h2 {
-      font-size: 16px;
-      color: #ccc;
-      margin-bottom: 10px;
-    }
-
-    .location {
-      font-size: 14px;
-      color: #aaa;
-      margin-bottom: 20px;
-    }
-
-    .bio {
-      font-size: 15px;
-      color: #eee;
-      margin-bottom: 30px;
-      line-height: 1.6;
-    }
-
-    .buttons a {
-      display: inline-block;
-      margin: 10px 6px;
-      padding: 10px 20px;
-      border-radius: 25px;
-      background-color: transparent;
-      color: #00e5ff;
-      border: 1px solid #00e5ff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      animation: pulse 2s infinite;
-    }
-
-    .buttons a:hover {
-      background-color: #00e5ff;
-      color: #000;
-      transform: scale(1.05);
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 5px #00e5ff;
-      }
-      50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 15px #00e5ff;
-      }
-    }
-
-    .quote {
-      font-size: 14px;
-      color: #aaa;
-      background-color: #1c1f26;
-      padding: 15px;
-      border-radius: 12px;
-      margin-top: 30px;
-    }
-
-    .footer {
-      background-color: #1a1d24;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 20px;
-      border-top: 1px solid #333;
-      margin-top: 40px;
-    }
-
-    .footer img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .footer .name {
-      font-size: 14px;
-      color: #00e5ff;
-    }
-
-    .footer .title {
-      font-size: 12px;
-      color: #ccc;
-    }
-
-    .footer-left {
-      text-align: left;
-    }
-
-    .qr {
-      width: 40px;
-      height: 40px;
-    }
-  
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap');
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: #0c0f15;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.container {
+  padding: 30px 20px;
+  max-width: 600px;
+  margin: auto;
+}
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #00e5ff;
+  object-fit: cover;
+  box-shadow: 0 0 20px #00e5ff, 0 0 30px #00e5ff;
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+  from { box-shadow: 0 0 10px #00e5ff; }
+  to { box-shadow: 0 0 20px #00e5ff, 0 0 30px #00e5ff; }
+}
+h1 {
+  font-size: 26px;
+  margin: 15px 0 5px;
+  color: #00e5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.buttons a {
+  display: inline-block;
+  margin: 10px 6px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #00e5ff, #007bff);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.5), 0 0 10px rgba(0, 229, 255, 0.7);
+}
+.buttons a:hover {
+  transform: scale(1.08);
+  background: linear-gradient(135deg, #007bff, #00e5ff);
+  color: #000;
+  box-shadow: 0 6px 20px rgba(0, 229, 255, 0.7);
+}
+.surah {
+  background-color: #1c1f26;
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,229,255,0.2);
+  text-align: right;
+  line-height: 1.8;
+}
+.surah h3 {
+  color: #00e5ff;
+  margin-bottom: 10px;
+}
+.quote {
+  font-size: 14px;
+  color: #aaa;
+  background-color: #1c1f26;
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 30px;
+}
+.footer {
+  background-color: #1a1d24;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-top: 1px solid #333;
+  margin-top: 40px;
+}
+.footer img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.footer .name {
+  font-size: 14px;
+  color: #00e5ff;
+}
+.footer .title {
+  font-size: 12px;
+  color: #ccc;
+}
+.footer-left {
+  text-align: left;
+}
+.qr {
+  width: 40px;
+  height: 40px;
+}
 #particles-js {
   position: fixed;
   width: 100%;
@@ -159,28 +121,39 @@
 </head>
 <body>
 <div id="particles-js"></div>
-<div class="container">
+<div class="container" id="main-section">
 <img alt="Omar's Photo" class="profile-img" src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg"/>
-<h1>
-      Omar AL Sayed Gabr
-      <img alt="Verified" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg" style="width: 20px; height: 20px; vertical-align: middle; margin-left: 6px;"/>
+<h1>Omar AL Sayed Gabr
+  <img alt="Verified" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg" style="width: 20px; height: 20px; vertical-align: middle; margin-left: 6px;"/>
 </h1>
 <h2>طالب بكلية الهندسة - جامعة الزقازيق</h2>
-<video autoplay="" controls="" loop="" style="width: 100%; border-radius: 12px; margin: 30px auto; box-shadow: 0 0 15px #00e5ff; display: block;"><source src="https://files.catbox.moe/ngreh6.mp4" type="video/mp4"/>متصفحك لا يدعم تشغيل الفيديو.</video><div class="location"><i class="fas fa-map-marker-alt"></i> مصر</div>
-<div class="bio">
-      طالب بكلية الهندسة، مهتم بتطوير المواقع والتقنية.<br/>
-      أسعى لبناء مستقبل في عالم البرمجة والتكنولوجيا بدافع الشغف والتعلم المستمر.
-    </div>
+<video autoplay controls loop style="width: 100%; border-radius: 12px; margin: 30px auto; box-shadow: 0 0 15px #00e5ff; display: block;">
+  <source src="https://files.catbox.moe/ngreh6.mp4" type="video/mp4"/>
+</video>
 <div class="buttons">
-<a href="tel:+201002962162" onclick="playClick()">اتصال مباشر</a>
-<a href="https://wa.me/201146591742" onclick="playClick()">واتساب</a>
-<a href="mailto:omargabraazz@gmail.com" onclick="playClick()">البريد الإلكتروني</a>
-<a href="https://t.me/o_m_a_r_39" onclick="playClick()">تيليجرام</a>
+  <a href="tel:+201002962162">اتصال مباشر</a>
+  <a href="https://wa.me/201146591742">واتساب</a>
+  <a href="mailto:omargabraazz@gmail.com">البريد الإلكتروني</a>
+  <a href="https://t.me/o_m_a_r_39">تيليجرام</a>
+  <a href="#" onclick="showTip()">نصيحة اليوم</a>
+  <a href="#" onclick="showQuran()">المصحف</a>
 </div>
-<div class="quote">
-      “النجاح لا يأتي بالصدفة، بل بصبر، شغف، وخطوات مستمرة نحو الهدف.”<br/>
-      – Omar Gabr
-    </div>
+<div class="quote" id="daily-tip" style="display:none;">
+  ✨ <span id="tip-content"></span>
+</div>
+</div>
+<div class="container" id="quran-section" style="display:none;">
+<h1>المصحف</h1>
+<div class="surah">
+<h3>الفاتحة</h3>
+<p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ <br>الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ <br>الرَّحْمَٰنِ الرَّحِيمِ <br>مَالِكِ يَوْمِ الدِّينِ <br>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ <br>اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ <br>صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</p>
+<audio controls>
+  <source src="https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/001.mp3" type="audio/mp3">
+</audio>
+</div>
+<div class="buttons">
+  <a href="#" onclick="showMain()">عودة للرئيسية</a>
+</div>
 </div>
 <div class="footer">
 <img alt="Omar Photo" src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg"/>
@@ -190,44 +163,65 @@
 </div>
 <img alt="QR Code" class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=60x60&amp;data=https://wa.me/201146591742"/>
 </div>
-<audio id="click-sound" preload="auto" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7746645c7f.mp3?filename=click-124467.mp3"></audio>
 <script>
-    function playClick() {
-      document.getElementById('click-sound').play();
-    }
-  </script>
+function showTip() {
+  const tips = [
+    "ابدأ يومك بابتسامة وتفاؤل، فكل يوم هو فرصة جديدة.",
+    "الفشل ليس نهاية، بل بداية لتجربة جديدة.",
+    "تعلم شيئًا جديدًا اليوم، ولو بسيطًا.",
+    "خطوة صغيرة كل يوم تقربك نحو هدفك.",
+    "أحط نفسك بأشخاص يدفعونك للأمام."
+  ];
+  const randomTip = tips[Math.floor(Math.random() * tips.length)];
+  document.getElementById('tip-content').innerText = randomTip;
+  document.getElementById('daily-tip').style.display = 'block';
+  document.getElementById('quran-section').style.display = 'none';
+  document.getElementById('main-section').style.display = 'block';
+}
+function showQuran() {
+  document.getElementById('main-section').style.display = 'none';
+  document.getElementById('quran-section').style.display = 'block';
+  document.getElementById('daily-tip').style.display = 'none';
+}
+function showMain() {
+  document.getElementById('quran-section').style.display = 'none';
+  document.getElementById('main-section').style.display = 'block';
+  document.getElementById('daily-tip').style.display = 'none';
+}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 70 },
-        "color": { "value": "#00e5ff" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.5 },
-        "size": { "value": 3 },
-        "line_linked": {
-          "enable": true,
-          "distance": 130,
-          "color": "#00e5ff",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": { "enable": true, "speed": 2 }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": { "enable": true, "mode": "repulse" },
-          "onclick": { "enable": true, "mode": "push" }
-        },
-        "modes": {
-          "repulse": { "distance": 100 },
-          "push": { "particles_nb": 4 }
-        }
-      },
-      "retina_detect": true
-    });
-  </script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 70 },
+    "color": { "value": "#00e5ff" },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.5 },
+    "size": { "value": 3 },
+    "line_linked": {
+      "enable": true,
+      "distance": 130,
+      "color": "#00e5ff",
+      "opacity": 0.4,
+      "width": 1
+    },
+    "move": { "enable": true, "speed": 2 }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": { "enable": true, "mode": "repulse" },
+      "onclick": { "enable": true, "mode": "push" }
+    },
+    "modes": {
+      "repulse": { "distance": 100 },
+      "push": { "particles_nb": 4 }
+    }
+  },
+  "retina_detect": true
+});
+</script>
+<audio id="click-sound" preload="auto" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7746645c7f.mp3?filename=click-124467.mp3"></audio>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 </body>
 </html>
