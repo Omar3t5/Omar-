@@ -1,320 +1,354 @@
-
-<!DOCTYPE html>
-<html lang="ar">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Omar AL Sayed | صفحتي التعريفية</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Omar AL Sayed Gabr | واجهة شخصية احترافية</title>
+  <meta name="description" content="الموقع الشخصي لـ Omar AL Sayed Gabr — طالب بكلية الهندسة، معرض أعمال، خدمات، تواصل." />
+  <meta name="theme-color" content="#00e5ff" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Omar AL Sayed Gabr | واجهة شخصية" />
+  <meta property="og:description" content="واجهة أنيقة داكنة بنمط نيون — نبذة، خدمات، أعمال، تواصل سريع." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" />
+  <meta property="og:locale" content="ar_AR" />  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <style>
+    :root {
+      --bg: #0c0f15;
+      --panel: #121622;
+      --panel-2: #1a1f2e;
+      --text: #e7f6ff;
+      --muted: #a7bdc7;
+      --primary: #00e5ff;
+      --primary-2: #00bfff;
+      --accent: #007bff;
+      --shadow: 0 10px 30px rgba(0, 229, 255, 0.15);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
     body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      direction: rtl;
-      background: linear-gradient(to bottom right, #1f1c2c, #928dab);
-      color: white;
-      text-align: center;
+      margin: 0; font-family: 'Cairo', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg); color: var(--text); overflow-x: hidden;
     }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }/* Background Particles Layer */
+#particles-js { position: fixed; inset: 0; z-index: -1; }
 
-    .container {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-      animation: fadeIn 1.2s ease-in-out;
-    }
+/* Topbar */
+.topbar { position: sticky; top: 0; backdrop-filter: saturate(140%) blur(8px);
+  background: linear-gradient(180deg, rgba(12,15,21,0.85), rgba(12,15,21,0.55));
+  border-bottom: 1px solid rgba(0,229,255,0.12); z-index: 50; }
+.container { width: min(1100px, 92%); margin: 0 auto; }
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .4px; color: var(--primary); }
+.brand img { width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--primary); box-shadow: 0 0 18px var(--primary); object-fit: cover; }
+.nav-links { display: flex; gap: 18px; align-items: center; }
+.nav-links a { padding: 8px 14px; border-radius: 40px; font-weight: 700; color: var(--text); border: 1px solid transparent; transition: .25s;
+  box-shadow: 0 0 0 rgba(0,0,0,0); }
+.nav-links a:hover, .nav-links a.active { border-color: rgba(0,229,255,0.35); color: #000; background: linear-gradient(135deg, var(--primary), var(--accent)); box-shadow: 0 0 18px rgba(0,229,255,.45); }
+.menu-btn { display: none; font-size: 22px; }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+/* Hero */
+.hero { padding: 64px 0 32px; position: relative; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 26px; align-items: center; }
+.badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 100px; font-weight: 700;
+  background: linear-gradient(135deg, rgba(0,229,255,.18), rgba(0,123,255,.18)); border: 1px solid rgba(0,229,255,.35);
+  color: var(--primary); box-shadow: var(--shadow); }
+.hero h1 { margin: 14px 0 10px; font-size: clamp(28px, 4.2vw, 44px); line-height: 1.15; color: var(--primary); }
+.hero p { color: var(--muted); font-size: clamp(15px, 2.2vw, 18px); }
+.cta { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 40px; font-weight: 800; transition: .25s; border: 1px solid rgba(0,229,255,.35); box-shadow: var(--shadow); }
+.btn.primary { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #000; }
+.btn.primary:hover { filter: brightness(1.05); box-shadow: 0 0 24px rgba(0,229,255,.5); }
+.btn.ghost { background: rgba(255,255,255,0.02); color: var(--text); }
+.btn.ghost:hover { background: rgba(255,255,255,0.06); }
 
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid #00e676;
-      margin-top: 40px;
-      object-fit: cover;
-      box-shadow: 0 0 15px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease;
-    }
+.card { background: linear-gradient(180deg, var(--panel), var(--panel-2)); border: 1px solid rgba(0,229,255,.12); border-radius: var(--radius); box-shadow: var(--shadow); }
+.hero .card { padding: 20px; text-align: center; }
+.hero .profile { width: 160px; height: 160px; margin: 0 auto 10px; border-radius: 50%; border: 3px solid var(--primary); box-shadow: 0 0 22px var(--primary);
+  object-fit: cover; animation: glow 2.5s infinite alternate; }
+@keyframes glow { from { box-shadow: 0 0 12px var(--primary); } to { box-shadow: 0 0 24px var(--primary), 0 0 36px var(--primary); } }
 
-    .profile-img:hover {
-      transform: scale(1.05);
-    }
+/* Sections */
+section { scroll-margin-top: 92px; padding: 54px 0; }
+.sec-title { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; color: var(--primary); }
+.sec-title i { filter: drop-shadow(0 0 8px rgba(0,229,255,.7)); }
+.columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 
-    h1 {
-      font-size: 32px;
-      margin: 20px 0 10px;
-    }
+.service { padding: 18px; }
+.service h3 { margin: 6px 0 8px; }
+.service p { color: var(--muted); }
 
-    p {
-      font-size: 20px;
-      color: #eee;
-      margin-bottom: 40px;
-    }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.project { position: relative; overflow: hidden; border-radius: var(--radius); border: 1px solid rgba(0,229,255,.12); background: #0e131d; }
+.project img { width: 100%; height: 200px; object-fit: cover; transition: transform .4s ease; }
+.project:hover img { transform: scale(1.05); }
+.project .meta { position: absolute; inset-inline: 10px; bottom: 10px; background: rgba(0,0,0,.45); padding: 8px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(6px); font-weight: 700; }
 
-    .contact-btn {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: transparent;
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 14px 24px;
-      margin: 12px auto;
-      border: 2px solid #00e676;
-      border-radius: 50px;
-      width: 85%;
-      max-width: 350px;
-      overflow: hidden;
-      transition: color 0.3s ease;
-      z-index: 1;
-    }
+/* Quran widget */
+.quran-card { padding: 18px; text-align: right; line-height: 1.9; }
+.quran-card h4 { color: var(--primary); margin: 6px 0 10px; }
+.quran-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.fatiha-btn { background: linear-gradient(135deg, var(--primary), var(--primary-2)); color: #000; box-shadow: 0 0 15px var(--primary), 0 0 25px var(--primary); font-weight: 800; }
 
-    .contact-btn::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 100%;
-      width: 100%;
-      height: 100%;
-      background: #00e676;
-      transition: all 0.4s ease;
-      z-index: -1;
-    }
+/* Contact */
+.contact { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
+.form { padding: 18px; }
+.form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.input { background: #0e131d; color: var(--text); border: 1px solid rgba(0,229,255,.18); border-radius: 12px; padding: 12px 14px; outline: none; transition: .2s; }
+.input:focus { border-color: var(--primary); box-shadow: 0 0 14px rgba(0,229,255,.35); }
+textarea.input { min-height: 120px; resize: vertical; }
 
-    .contact-btn:hover::before {
-      right: 0;
-    }
+/* Footer */
+footer { padding: 24px 0; border-top: 1px solid rgba(0,229,255,.12); background: rgba(255,255,255,0.02); }
+.foot { display: flex; gap: 10px; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+.socials { display: flex; gap: 10px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 100px; border: 1px solid rgba(0,229,255,.25); color: var(--muted); }
 
-    .contact-btn:hover {
-      color: #000;
-      transform: translateY(-2px);
-    }
+/* Floating actions */
+.float-wa { position: fixed; left: 18px; bottom: 18px; width: 52px; height: 52px; border-radius: 50%;
+  background: #25d366; display: grid; place-items: center; box-shadow: 0 8px 20px rgba(37,211,102,.35); z-index: 60; }
+.to-top { position: fixed; right: 18px; bottom: 18px; width: 48px; height: 48px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent)); color: #000; display: grid; place-items: center; box-shadow: 0 10px 24px rgba(0,229,255,.45); opacity: 0; pointer-events: none; transition: .25s; z-index: 60; }
+.to-top.show { opacity: 1; pointer-events: auto; }
 
-    .icon {
-      font-size: 22px;
-    }
+/* Responsive */
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .contact { grid-template-columns: 1fr; }
+  .columns, .grid { grid-template-columns: repeat(2, 1fr); }
+  .form .row { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .menu-btn { display: block; }
+  .nav.open .nav-links { display: flex; position: absolute; inset-inline: 0; top: 64px; padding: 14px; flex-direction: column; background: rgba(12,15,21,.98); border-bottom: 1px solid rgba(0,229,255,.12); }
+}
+@media (max-width: 600px) {
+  .columns, .grid { grid-template-columns: 1fr; }
+}
 
-    footer {
-      margin-top: 60px;
-      padding: 15px;
-      font-size: 14px;
-      color: #ccc;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-  </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+  /* === Quran Browser (full) === */
+.quran-wrap { display: grid; grid-template-columns: 300px 1fr; gap: 16px; }
+.quran-sidebar { padding: 14px; }
+.quran-search { width: 100%; margin-bottom: 10px; }
+.quran-list { max-height: 520px; overflow: auto; display: grid; gap: 8px; }
+.q-item { display:flex; align-items:center; justify-content:space-between; padding:10px 12px; border-radius:12px; border:1px solid rgba(0,229,255,.15); background:#0e131d; cursor:pointer; transition:.2s; }
+.q-item:hover, .q-item.active { border-color: rgba(0,229,255,.45); box-shadow: 0 0 16px rgba(0,229,255,.25); }
+.q-item .name { font-weight: 800; }
+.q-item .count { color: var(--muted); font-size: 12px; }
+.quran-view { padding: 16px; text-align: right; line-height: 2; }
+.quran-view h3 { color: var(--primary); margin: 6px 0 10px; }
+.ayah { display: inline; }
+.ayah .num { display: inline-block; font-size: 12px; padding: 3px 7px; margin: 0 6px; border-radius: 20px; border: 1px solid rgba(0,229,255,.35); color: var(--primary); }
+.quran-actions { display:flex; gap:10px; flex-wrap:wrap; margin: 10px 0 0; }
+
+</style>
 </head>
 <body>
-
+  <div id="particles-js"></div>
+  <header class="topbar">
+    <div class="container">
+      <nav class="nav" id="nav">
+        <a class="brand" href="#home" aria-label="انتقال إلى البداية">
+          <img src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" alt="صورة عمر" />
+          <span>Omar AL Sayed Gabr</span>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg" alt="موثق" style="width:20px;height:20px" />
+        </a>
+        <div class="nav-links" role="navigation" aria-label="القائمة الرئيسية">
+          <a href="#about">نبذة</a>
+          <a href="#services">الخدمات</a>
+          <a href="#projects">الأعمال</a>
+          <a href="#quran">الفاتحة</a>
+          <a href="#contact">تواصل</a>
+          <a class="btn primary" href="tel:+201002962162"><i class="fa-solid fa-phone"></i> اتصال</a>
+        </div>
+        <button class="menu-btn btn ghost" aria-label="فتح القائمة" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+      </nav>
+    </div>
+  </header>  <main id="home">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge"><i class="fa-solid fa-sparkles"></i> واجهة نيون احترافية</div>
+          <h1>مهندس طموح، متقن للتقنية، محب للتعلّم المستمر</h1>
+          <p>طالب بكلية الهندسة – جامعة الزقازيق. أعمل على مشاريع ويب وتطبيقات صغيرة، وأسعى لبناء حلول عملية بتصميم جذّاب وتجربة مستخدم عصرية.</p>
+          <div class="cta">
+            <a class="btn primary" href="#projects"><i class="fa-solid fa-grid-2"></i> تصفّح الأعمال</a>
+            <a class="btn ghost" href="#contact"><i class="fa-solid fa-paper-plane"></i> اطلب مشروعك</a>
+          </div>
+          <div class="cta" style="margin-top:10px">
+            <a class="btn ghost" href="https://wa.me/201146591742" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+            <a class="btn ghost" href="mailto:omargabraazz@gmail.com"><i class="fa-solid fa-envelope"></i> بريد</a>
+            <a class="btn ghost" href="https://t.me/o_m_a_r_39" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i> تيليجرام</a>
+          </div>
+        </div>
+        <div class="card">
+          <img class="profile" src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" alt="صورة بروفايل عمر" />
+          <video autoplay muted loop playsinline style="width:100%; border-radius: 12px; margin-top: 10px; box-shadow: 0 0 15px var(--primary)">
+            <source src="https://files.catbox.moe/ngreh6.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section><!-- ABOUT -->
+<section id="about">
   <div class="container">
-    <img class="profile-img" src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" alt="Omar's Photo" />
-    <h1>Omar AL Sayed</h1>
-    <p>مطور مواقع | صانع محتوى تقني | جاهز لمساعدتك!</p>
-
-    <a class="contact-btn" href="tel:+201002962162">
-      <i class="fas fa-phone icon"></i> اتصل بي
-    </a>
-
-    <a class="contact-btn" href="https://wa.me/201146591742" target="_blank">
-      <i class="fab fa-whatsapp icon"></i> واتساب
-    </a>
-
-    <a class="contact-btn" href="mailto:omargabraazz@gmail.com">
-      <i class="fas fa-envelope icon"></i> البريد الإلكتروني
-    </a>
-
-    <a class="contact-btn" href="https://t.me/o_m_a_r_39" target="_blank">
-      <i class="fab fa-telegram icon"></i> تيليجرام
-    </a>
-
-    <footer>
-      © جميع الحقوق محفوظة - Omar AL Sayed 2025
-    </footer>
+    <h2 class="sec-title"><i class="fa-solid fa-user-robot"></i> نبذة سريعة</h2>
+    <div class="columns">
+      <div class="card service">
+        <h3>من أنا؟</h3>
+        <p>أنا عمر السيد جبر (@omargabr046)، طالب هندسة شغوف ببناء مواقع بواجهة عصرية وأداء قوي. أحب تحويل الأفكار إلى منتجات بسيطة وواضحة.</p>
+      </div>
+      <div class="card service">
+        <h3>المهارات</h3>
+        <p>HTML, CSS, JavaScript, تصميم واجهات، تحسين تجربة المستخدم، أساسيات Git، ونمط النيون الداكن الذي تراه هنا ✨.</p>
+      </div>
+      <div class="card service">
+        <h3>أهدافي</h3>
+        <p>تطوير مشاريع حقيقية للعمـلاء، تعلّم تقنيات متقدمة، وبناء بورتفوليو قوي يساعدني على دخول سوق العمل بكفاءة.</p>
+      </div>
+    </div>
   </div>
+</section>
 
-</body>
-</html>
-      box-shadow: 0 0 15px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease;
-    }
-
-    .profile-img:hover {
-      transform: scale(1.05);
-    }
-
-    h1 {
-      font-size: 32px;
-      margin: 20px 0 10px;
-    }
-
-    p {
-      font-size: 20px;
-      color: #eee;
-      margin-bottom: 40px;
-    }
-
-    .contact-btn {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: transparent;
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 14px 24px;
-      margin: 12px auto;
-      border: 2px solid #00e676;
-      border-radius: 50px;
-      width: 85%;
-      max-width: 350px;
-      overflow: hidden;
-      transition: color 0.3s ease;
-      z-index: 1;
-    }
-
-    .contact-btn::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 100%;
-      width: 100%;
-      height: 100%;
-      background: #00e676;
-      transition: all 0.4s ease;
-      z-index: -1;
-    }
-
-    .contact-btn:hover::before {
-      right: 0;
-    }
-
-    .contact-btn:hover {
-      color: #000;
-      transform: translateY(-2px);
-    }
-
-    .icon {
-      font-size: 22px;
-    }
-
-    footer {
-      margin-top: 60px;
-      padding: 15px;
-      font-size: 14px;
-      color: #ccc;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-  </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-
+<!-- SERVICES -->
+<section id="services">
   <div class="container">
-    <img class="profile-img" src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" alt="Omar's Photo" />
-    <h1>Omar AL Sayed</h1>
-    <p>مطور مواقع | صانع محتوى تقني | جاهز لمساعدتك!</p>
-
-    <a class="contact-btn" href="tel:+201002962162">
-      <i class="fas fa-phone icon"></i> اتصل بي
-    </a>
-
-    <a class="contact-btn" href="https://wa.me/201146591742" target="_blank">
-      <i class="fab fa-whatsapp icon"></i> واتساب
-    </a>
-
-    <a class="contact-btn" href="mailto:omargabraazz@gmail.com">
-      <i class="fas fa-envelope icon"></i> البريد الإلكتروني
-    </a>
-
-    <a class="contact-btn" href="https://t.me/o_m_a_r_39" target="_blank">
-      <i class="fab fa-telegram icon"></i> تيليجرام
-    </a>
-
-    <footer>
-      © جميع الحقوق محفوظة - Omar AL Sayed 2025
-    </footer>
+    <h2 class="sec-title"><i class="fa-solid fa-wand-magic-sparkles"></i> ماذا أقدم؟</h2>
+    <div class="columns">
+      <div class="card service">
+        <i class="fa-solid fa-code"></i>
+        <h3>مواقع واجهة (Landing)</h3>
+        <p>صفحات تسويقية سريعة التحميل، متوافقة مع الجوال، مع تصميم نيون جذّاب يحوّل الزائر إلى عميل.</p>
+      </div>
+      <div class="card service">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>تحسين الأداء</h3>
+        <p>تصغير الملفات، تحسين الصور، وإزالة الأكواد الزائدة لضمان سرعة ممتازة وتجربة سلسة.</p>
+      </div>
+      <div class="card service">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h3>أفضل الممارسات</h3>
+        <p>هيكلة نظيفة، إمكانية الوصول، وأساسيات SEO لتظهر بشكل أفضل في نتائج البحث.</p>
+      </div>
+    </div>
   </div>
+</section>
 
-</body>
-</html>
-      justify-content: center;
-      gap: 10px;
-      background: #4CAF50;
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-      padding: 12px 20px;
-      margin: 10px auto;
-      border-radius: 30px;
-      width: 80%;
-      max-width: 300px;
-      transition: background 0.3s, transform 0.3s;
-      animation: fadeInBtn 1s ease forwards;
-    }
-
-    .contact-btn:hover {
-      background: #45a049;
-      transform: scale(1.03);
-    }
-
-    @keyframes fadeInBtn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .icon {
-      font-size: 20px;
-    }
-
-    footer {
-      margin-top: 40px;
-      padding: 10px;
-      font-size: 14px;
-      color: #aaa;
-    }
-  </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-
+<!-- PROJECTS -->
+<section id="projects">
   <div class="container">
-    <img class="profile-img" src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" alt="Omar's Photo" />
-    <h1>Omar AL Sayed</h1>
-    <p>مطور مواقع | صانع محتوى تقني</p>
-
-    <a class="contact-btn" href="tel:+201146591742">
-      <i class="fas fa-phone icon"></i> اتصل بي
-    </a>
-
-    <a class="contact-btn" href="https://wa.me/201146591742" target="_blank">
-      <i class="fab fa-whatsapp icon"></i> واتساب
-    </a>
-
-    <a class="contact-btn" href="mailto:omargabraazz@gmail.com">
-      <i class="fas fa-envelope icon"></i> البريد الإلكتروني
-    </a>
-
-    <a class="contact-btn" href="https://t.me/o_m_a_r_39" target="_blank">
-      <i class="fab fa-telegram icon"></i> تيليجرام
-    </a>
-
-    <footer>
-      © جميع الحقوق محفوظة - Omar AL Sayed 2025
-    </footer>
+    <h2 class="sec-title"><i class="fa-solid fa-grid"></i> عينات من الأعمال</h2>
+    <div class="grid">
+      <a class="project" href="#" aria-label="معرض 1">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="مشروع 1" />
+        <div class="meta">بطاقة منتج / صفحة هبوط</div>
+      </a>
+      <a class="project" href="#" aria-label="معرض 2">
+        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1200&auto=format&fit=crop" alt="مشروع 2" />
+        <div class="meta">واجهة متجر صغيرة</div>
+      </a>
+      <a class="project" href="#" aria-label="معرض 3">
+        <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=1200&auto=format&fit=crop" alt="مشروع 3" />
+        <div class="meta">لوحة معلومات بسيطة</div>
+      </a>
+    </div>
   </div>
+</section>
 
-</body>
-</html>
+<!-- QURAN (Fatiha) -->
+<section id="quran">
+  <div class="container">
+    <h2 class="sec-title"><i class="fa-solid fa-book-quran"></i> القرآن الكريم</h2>
+    <div class="card quran-wrap">
+      <aside class="quran-sidebar">
+        <input id="qSearch" class="input quran-search" placeholder="ابحث عن سورة... (مثال: البقرة)" />
+        <div id="qList" class="quran-list" role="listbox" aria-label="قائمة السور"></div>
+      </aside>
+      <div class="quran-view">
+        <h3 id="qTitle">اختر سورة للبدء</h3>
+        <div id="qContent" style="color:var(--muted)">سيتم عرض الآيات هنا بالنص العثماني، مع مُشغّل صوت للسورة كاملة.</div>
+        <div class="quran-actions">
+          <audio id="qAudio" controls style="width:100%; display:none"></audio>
+          <button class="btn ghost" onclick="copyCurrentSurah()"><i class="fa-solid fa-copy"></i> نسخ نص السورة</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2 class="sec-title"><i class="fa-solid fa-paper-plane-top"></i> تواصل معي</h2>
+    <div class="contact">
+      <form class="card form" onsubmit="sendMessage(event)">
+        <div class="row">
+          <input class="input" type="text" name="name" placeholder="الاسم" required />
+          <input class="input" type="email" name="email" placeholder="البريد الإلكتروني" required />
+        </div>
+        <input class="input" type="text" name="subject" placeholder="الموضوع" style="margin-top:12px" />
+        <textarea class="input" name="message" placeholder="اكتب رسالتك هنا..." style="margin-top:12px" required></textarea>
+        <div class="cta">
+          <button class="btn primary" type="submit"><i class="fa-solid fa-paper-plane"></i> إرسال</button>
+          <a class="btn ghost" href="mailto:omargabraazz@gmail.com"><i class="fa-solid fa-envelope"></i> بريد مباشر</a>
+        </div>
+      </form>
+      <div class="card" style="padding:18px">
+        <h3>معلومات سريعة</h3>
+        <p style="color:var(--muted)">أنا متاح للمشاريع الصغيرة والمتوسطة. أسرع وسيلة تواصل هي واتساب.</p>
+        <div class="cta">
+          <a class="btn primary" href="tel:+201002962162"><i class="fa-solid fa-phone"></i> اتصال مباشر</a>
+          <a class="btn ghost" href="https://wa.me/201146591742" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+        </div>
+        <div class="cta" style="margin-top:8px">
+          <span class="chip"><i class="fa-solid fa-location-dot"></i> الزقازيق – مصر</span>
+          <span class="chip"><i class="fa-solid fa-graduation-cap"></i> طالب هندسة</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>  <footer>
+    <div class="container foot">
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" alt="Omar" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--primary)" />
+        <div>
+          <div style="color:var(--primary);font-weight:800">Omar AL Sayed Gabr</div>
+          <small style="color:var(--muted)">© <span id="year"></span> جميع الحقوق محفوظة</small>
+        </div>
+      </div>
+      <div class="socials">
+        <a class="chip" href="https://wa.me/201146591742" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+        <a class="chip" href="mailto:omargabraazz@gmail.com"><i class="fa-solid fa-envelope"></i> بريد</a>
+        <a class="chip" href="https://t.me/o_m_a_r_39" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i> تيليجرام</a>
+      </div>
+    </div>
+  </footer>  <!-- Floating Actions --><a class="float-wa" href="https://wa.me/201146591742" target="_blank" rel="noopener" aria-label="دردشة واتساب"><i class="fa-brands fa-whatsapp"></i></a> <button class="to-top" id="toTop" aria-label="إلى الأعلى" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Scripts -->  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>  <script>
+    // Particles
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 64 }, color: { value: "#00e5ff" }, shape: { type: "circle" },
+        opacity: { value: 0.5 }, size: { value: 3 }, line_linked: { enable: true, distance: 130, color: "#00e5ff", opacity: 0.4, width: 1 }, move: { enable: true, speed: 2 }
+      },
+      interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }, modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } } }, retina_detect: true
+    });
+
+    // Mobile menu
+    function toggleMenu(){ document.getElementById('nav').classList.toggle('open'); }
+
+    // Active link on scroll
+    const links = [...document.querySelectorAll('.nav-links a')];
+    const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        const id = '#'+e.target.id; const link = link
