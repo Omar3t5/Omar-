@@ -1,406 +1,249 @@
-<!DOCTYPE html><html lang="ar" dir="rtl" data-theme="dark">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Omar AL Sayed Gabr | صفحتان في ملف واحد</title>
-  <meta name="theme-color" content="#0b0f1a" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap" rel="stylesheet" />
+  <title>Omar AL Sayed Gabr — Portfolio</title>
+  <meta name="description" content="بورتفوليو احترافي بعرض أعمال ومهارات عمر السيد جبر — مطوّر واجهات أمامية." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#0a0e14',
+            surface: '#0f1522',
+            borderc: '#1b2332',
+            text: '#e6f1ff',
+            sub: '#a7b5c9',
+            brand: '#00e5ff',
+            brand2: '#5ef3ff'
+          },
+          boxShadow: {
+            soft: '0 10px 30px rgba(0,0,0,.30)',
+            glow: '0 0 0 1px rgba(0,229,255,.25), 0 12px 40px rgba(0,229,255,.15)'
+          },
+          fontFamily: { cairo: ['Cairo','system-ui','sans-serif'] }
+        }
+      }
+    }
+  </script>
   <style>
-    :root{
-      --bg:#0b0f1a; --fg:#eaf2ff; --muted:#a7b1c2; --card:rgba(255,255,255,.04); --line:rgba(255,255,255,.12);
-      --accent:#8b5cf6; --accent-2:#06b6d4; --accent-3:#f472b6; --shadow:0 20px 50px rgba(0,0,0,.45);
+    html,body{scroll-behavior:smooth}
+    /* Animated gradient mesh background */
+    .mesh {
+      position: fixed; inset: 0; z-index: -2; pointer-events: none;
+      background:
+        radial-gradient(900px 500px at 80% -10%, rgba(0,229,255,.15), transparent 60%),
+        radial-gradient(900px 500px at 20% 110%, rgba(94,243,255,.12), transparent 60%),
+        linear-gradient(180deg, #08101a, #0a0e14 40%);
+      animation: float 18s ease-in-out infinite;
+      filter: saturate(120%);
     }
-    [data-theme="light"]{
-      --bg:#f6f8ff; --fg:#0b0f1a; --muted:#4b5563; --card:rgba(0,0,0,.03); --line:rgba(0,0,0,.12);
-      --accent:#7c3aed; --accent-2:#0891b2; --accent-3:#ec4899; --shadow:0 20px 50px rgba(0,0,0,.12);
+    @keyframes float {
+      0%,100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(0,-10px,0) scale(1.01); }
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{font-family:'Cairo',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',sans-serif;background:radial-gradient(1200px 600px at 80% -10%, rgba(139,92,246,.18), transparent 60%), radial-gradient(1000px 500px at -10% 90%, rgba(6,182,212,.16), transparent 55%), var(--bg);color:var(--fg);margin:0}
-    a{color:inherit;text-decoration:none}
-    .container{width:min(1100px,94vw);margin:auto;padding:22px}
-    .glass{background:linear-gradient(180deg, var(--card), rgba(255,255,255,.02));border:1px solid var(--line);backdrop-filter: blur(10px) saturate(1.2);border-radius:18px;box-shadow:var(--shadow)}/* شريط التنقل */
-.nav{position:sticky;top:14px;z-index:20;display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 16px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800}
-.dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
-.tabs{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;font-weight:800;border:1px solid var(--line);transition:.25s;background:rgba(255,255,255,.02)}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(139,92,246,.25)}
-.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#0b0f1a;border:none}
-.lang{border:1px solid var(--line)}
-.theme{border:1px dashed var(--line)}
-.social{display:flex;gap:8px}
-.icon{width:22px;height:22px;display:inline-block}
-
-/* الصفحات */
-.page{display:none}
-.page.active{display:block}
-
-/* هيرو الصفحة الرئيسية */
-.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center;margin-top:10px}
-.title{font-size:clamp(26px,4.6vw,48px);line-height:1.2;margin:0 0 8px}
-.grad{background:linear-gradient(90deg,var(--accent),var(--accent-2),var(--accent-3));-webkit-background-clip:text;background-clip:text;color:transparent}
-.subtitle{color:var(--muted);font-size:16px;margin:0 0 18px}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-
-/* صورة دائرية + ميل 3D */
-.card3d{position:relative;perspective:1000px}
-.face{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition: transform .08s ease-out; transform-style:preserve-3d}
-.profile{width:100%;border-radius:50%;overflow:hidden;box-shadow:0 0 24px rgba(139,92,246,.45)}
-.profile img{display:block;width:100%;height:auto;border-radius:50%}
-
-/* أقسام عامة */
-section{margin-top:28px}
-.sect-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.sect-head h2{margin:0;font-size:22px}
-.pill{font-size:12px;color:#0b0f1a;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:6px 10px;border-radius:999px;font-weight:900}
-
-/* مهارات */
-.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.skill{padding:14px;border-radius:14px}
-.meter{height:8px;border-radius:999px;background:rgba(255,255,255,.08);margin-top:8px;overflow:hidden}
-.bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
-
-/* مشاريع */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.card{overflow:hidden}
-.card img{width:100%;height:170px;object-fit:cover;display:block;filter:saturate(1.15)}
-.card .body{padding:12px}
-.card .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
-.tag{font-size:12px;border:1px solid var(--line);padding:4px 8px;border-radius:999px}
-.card:hover{transform:translateY(-3px);transition:.25s}
-
-/* تايملاين */
-.timeline{position:relative;padding-inline:12px}
-.timeline:before{content:"";position:absolute;inset-inline-start:22px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--accent),var(--accent-2))}
-.step{position:relative;padding-inline-start:44px;margin:14px 0}
-.step:before{content:"";position:absolute;inset-inline-start:16px;top:6px;width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 0 3px rgba(139,92,246,.25)}
-.when{font-size:12px;color:var(--muted)}
-
-/* شهادات */
-.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.quote{padding:14px;border-inline-start:4px solid var(--accent);font-size:14px}
-
-/* فورم */
-form{display:grid;gap:10px}
-input,textarea{padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.02);color:var(--fg)}
-textarea{min-height:120px;resize:vertical}
-
-/* باقات جديدة */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.about .blurb{font-size:15px;color:var(--fg)}
-.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.cert{padding:14px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:center}
-.stat{padding:16px}
-.stat .num{font-size:28px;font-weight:900;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.blog{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.post{padding:14px}
-
-footer{margin-top:30px;padding:14px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
-
-#particles-js{position:fixed;inset:0;z-index:-1}
-
-@media (max-width:900px){ .hero{grid-template-columns:1fr;} .grid{grid-template-columns:1fr 1fr} .skills{grid-template-columns:1fr 1fr} .quotes{grid-template-columns:1fr} .about{grid-template-columns:1fr} .certs{grid-template-columns:1fr 1fr} .blog{grid-template-columns:1fr 1fr} .stats{grid-template-columns:1fr 1fr} }
-@media (max-width:640px){ .grid{grid-template-columns:1fr} .skills{grid-template-columns:1fr} .certs{grid-template-columns:1fr} .blog{grid-template-columns:1fr} .stats{grid-template-columns:1fr 1fr} }
-
+    /* Ultra subtle particles */
+    #p-canvas { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+    /* Cards + micro‑interactions */
+    .card { background: #0f1522; border: 1px solid #1b2332; border-radius: 16px; box-shadow: 0 2px 10px rgba(0,0,0,.25); }
+    .lift { transition: transform .25s ease, box-shadow .25s ease; }
+    .lift:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,.35); }
+    .tilt { transform-style: preserve-3d; will-change: transform; }
+    .tilt > * { transform: translateZ(22px); }
+    .badge { border:1px solid #253149; background:#0b1220; border-radius:999px; padding:.4rem .75rem; font-size:.72rem; color:#a7b5c9 }
+    .chip { border:1px solid #233149; background:#0b1220; border-radius:999px; padding:.35rem .6rem; font-size:.72rem; color:#99a9bf }
+    .btn { border:1px solid #2a3a52; border-radius:999px; padding:.8rem 1.1rem; font-weight:700 }
+    .btn:hover { background:#00e5ff; color:#081019; box-shadow: 0 10px 30px rgba(0,229,255,.18) }
+    /* Section titles */
+    .title { letter-spacing:.2px }
+    /* Accessibility focus */
+    :focus-visible { outline: 2px solid #00e5ff; outline-offset: 2px; border-radius: 10px }
   </style>
 </head>
-<body>
-  <div id="particles-js" aria-hidden="true"></div>
-  <nav class="container glass nav">
-    <div class="brand"><span class="dot"></span> Omar AL Sayed Gabr</div>
-    <div class="tabs">
-      <a class="btn" href="#home" data-route>الرئيسية</a>
-      <a class="btn" href="#programming" data-route>مفاهيم البرمجة</a>
-      <button class="btn lang" id="langToggle" aria-label="تبديل اللغة">AR / EN</button>
-      <button class="btn theme" id="themeToggle" aria-label="تبديل الثيم">Dark / Light</button>
-      <div class="social">
-        <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub" class="icon" style="mask:url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path fill=\"%23000\" d=\"M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58 0-.29-.01-1.06-.02-2.08-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.48.99.11-.78.42-1.3.77-1.6-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.51.12-3.14 0 0 1.01-.32 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.29-1.55 3.3-1.23 3.3-1.23.66 1.63.24 2.84.12 3.14.77.84 1.24 1.91 1.24 3.22 0 4.62-2.81 5.64-5.49 5.94.43.37.82 1.1.82 2.22 0 1.6-.02 2.9-.02 3.29 0 .32.22.7.83.58C20.57 21.79 24 17.29 24 12 24 5.37 18.63 0 12 0z\"/></svg>'); -webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path fill=\"%23000\" d=\"M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58 0-.29-.01-1.06-.02-2.08-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.48.99.11-.78.42-1.3.77-1.6-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.51.12-3.14 0 0 1.01-.32 3.3 1.23.96-.27 1.98-.4 3-.4s2.04.13 3 .4c2.29-1.55 3.3-1.23 3.3-1.23.66 1.63.24 2.84.12 3.14.77.84 1.24 1.91 1.24 3.22 0 4.62-2.81 5.64-5.49 5.94.43.37.82 1.1.82 2.22 0 1.6-.02 2.9-.02 3.29 0 .32.22.7.83.58C20.57 21.79 24 17.29 24 12 24 5.37 18.63 0 12 0z\"/></svg>'); background:var(--fg)"></a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn" class="icon" style="mask:url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05C12.94 8.84 14.62 8 16.7 8c4.02 0 4.76 2.64 4.76 6.07V23h-4v-7.53c0-1.8-.03-4.12-2.51-4.12-2.51 0-2.89 1.96-2.89 3.99V23h-4V8z\"/></svg>'); -webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05C12.94 8.84 14.62 8 16.7 8c4.02 0 4.76 2.64 4.76 6.07V23h-4v-7.53c0-1.8-.03-4.12-2.51-4.12-2.51 0-2.89 1.96-2.89 3.99V23h-4V8z\"/></svg>'); background:var(--fg)"></a>
-      </div>
-    </div>
-  </nav>  <!-- الصفحة 1: الرئيسية -->  <div id="home" class="page active">
-    <header class="container hero" data-aos="fade-up">
-      <div class="glass" style="padding:20px">
-        <h1 class="title">مطور واجهات <span class="grad">يبني تجارب ويب مذهلة</span></h1>
-        <p class="subtitle">طالب بكلية الهندسة – جامعة الزقازيق. شغوف ببناء مواقع سريعة، محسّنة، وذات تجربة مستخدم عالية.</p>
-        <div class="cta">
-          <a class="btn primary" href="https://wa.me/201146591742" target="_blank" rel="noopener">تواصل عبر واتساب</a>
-          <a class="btn" href="mailto:omargabraazz@gmail.com">أرسل بريدًا</a>
-          <a class="btn" href="#projects" data-route>أعمالي</a>
-          <a class="btn" href="/cv.pdf" download>تحميل السيرة الذاتية</a>
-        </div>
-      </div>
-      <div class="card3d" data-aos="zoom-in">
-        <div class="face glass profile">
-          <img src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" alt="صورة عمر" width="540" height="540"/>
-        </div>
-      </div>
-    </header><main class="container">
-  <!-- About Me -->
-  <section class="glass about" id="about" style="padding:18px" data-aos="fade-up">
-    <div>
-      <div class="sect-head"><h2>من أنا</h2><span class="pill">About Me</span></div>
-      <p class="blurb">أنا عمر السيد جبر، طالب هندسة مهتم بتطوير الويب. بحب أبني تجارب سلسة وسريعة، وبتعلم كل يوم حاجات جديدة من مشاريع عملية. هدفي إني أشتغل على منتجات حقيقية تضيف قيمة للناس.</p>
-      <ul>
-        <li>التركيز: Frontend / UX</li>
-        <li>أدواتي: VSCode، Git، Figma</li>
-        <li>جاهز لفرص تدريب/فريلانس</li>
-      </ul>
-    </div>
-    <div class="glass" style="padding:16px">
-      <div class="sect-head"><h2>أرقام وإنجازات</h2><span class="pill">Stats</span></div>
-      <div class="stats">
-        <div class="stat"><div class="num" data-count="12">0</div><div>مشروع منجز</div></div>
-        <div class="stat"><div class="num" data-count="4">0</div><div>لغات/أُطر</div></div>
-        <div class="stat"><div class="num" data-count="2">0</div><div>شهادات</div></div>
-        <div class="stat"><div class="num" data-count="1200">0</div><div>ساعة تعلّم</div></div>
-      </div>
-    </div>
-  </section>
+<body class="font-cairo bg-bg text-text selection:bg-brand/20 selection:text-text/90">
+  <div class="mesh" aria-hidden="true"></div>
+  <canvas id="p-canvas" aria-hidden="true"></canvas>
 
-  <!-- Skills -->
-  <section class="glass" id="skills" style="padding:18px" data-aos="fade-up">
-    <div class="sect-head"><h2>المهارات</h2><span class="pill">Top Skills</span></div>
-    <div class="skills">
-      <div class="skill"><div>HTML5 / Semantics</div><div class="meter"><div class="bar" style="width:95%"></div></div></div>
-      <div class="skill"><div>CSS3 / Tailwind</div><div class="meter"><div class="bar" style="width:90%"></div></div></div>
-      <div class="skill"><div>JavaScript (ES6+)</div><div class="meter"><div class="bar" style="width:85%"></div></div></div>
-      <div class="skill"><div>React</div><div class="meter"><div class="bar" style="width:80%"></div></div></div>
-      <div class="skill"><div>Node.js Basics</div><div class="meter"><div class="bar" style="width:70%"></div></div></div>
-      <div class="skill"><div>Git & GitHub</div><div class="meter"><div class="bar" style="width:75%"></div></div></div>
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur border-b border-borderc/80 bg-bg/70">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
+      <img src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" class="w-9 h-9 rounded-full ring-2 ring-brand/30" alt="Omar">
+      <nav class="ml-auto flex items-center gap-2 text-sm">
+        <a class="btn" href="#projects">المشاريع</a>
+        <a class="btn" href="#skills">المهارات</a>
+        <a class="btn" href="#contact">تواصل</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- Projects -->
-  <section class="glass" id="projects" style="padding:18px" data-aos="fade-up">
-    <div class="sect-head"><h2>المشاريع</h2><span class="pill">Showcase</span></div>
-    <div class="grid">
-      <article class="card glass" data-aos="fade-up" data-aos-delay="0">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="مشروع صفحة هبوط"/>
-        <div class="body"><h3>Landing Page — Tech</h3><p>صفحة هبوط سريعة ومحسّنة للأداء مع تصميم متجاوب ومؤثرات لطيفة.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div></div>
-      </article>
-      <article class="card glass" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="لوحة معلومات"/>
-        <div class="body"><h3>Dashboard UI</h3><p>لوحة إحصائيات برسوم بسيطة وأكشنز سريعة وتحكم في الثيم.</p><div class="tags"><span class="tag">React</span><span class="tag">API</span></div></div>
-      </article>
-      <article class="card glass" data-aos="fade-up" data-aos-delay="200">
-        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="موقع بمدونة"/>
-        <div class="body"><h3>Blog Starter</h3><p>قالب مدونة سريع مع تحسين SEO وخرائط موقع وRSS.</p><div class="tags"><span class="tag">Next.js</span><span class="tag">Markdown</span></div></div>
-      </article>
-    </div>
-  </section>
-
-  <!-- شهادات / كورسات -->
-  <section class="glass" id="certificates" style="padding:18px" data-aos="fade-up">
-    <div class="sect-head"><h2>شهادات ودورات</h2><span class="pill">Certificates</span></div>
-    <div class="certs">
-      <div class="cert glass"><strong>Front-End Basics</strong><br><small>Udemy — 2024</small></div>
-      <div class="cert glass"><strong>JavaScript ES6</strong><br><small>Coursera — 2024</small></div>
-      <div class="cert glass"><strong>Responsive Design</strong><br><small>freeCodeCamp — 2025</small></div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="glass" id="testimonials" style="padding:18px" data-aos="fade-up">
-    <div class="sect-head"><h2>آراء</h2><span class="pill">Testimonials</span></div>
-    <div class="quotes">
-      <div class="quote glass">«تنفيذ سريع وجودة ممتازة في التفاصيل.» — عميل مستقل</div>
-      <div class="quote glass">«تواصل محترف وتجربة مستخدم رائعة.» — زميل في مشروع جامعي</div>
-    </div>
-  </section>
-
-  <!-- مدونة بسيطة -->
-  <section class="glass" id="blog" style="padding:18px" data-aos="fade-up">
-    <div class="sect-head"><h2>مدونة</h2><span class="pill">Blog</span></div>
-    <div class="blog">
-      <article class="post glass">
-        <h3>ما الفرق بين let و const؟</h3>
-        <p>شرح مبسّط لاستخدام كل منهما وأفضل الممارسات في JavaScript.</p>
-        <a class="btn" href="#">اقرأ المزيد</a>
-      </article>
-      <article class="post glass">
-        <h3>كيف تحسّن أداء موقعك؟</h3>
-        <p>نصائح عملية: ضغط الصور، lazy-loading، وتقليل طلبات الشبكة.</p>
-        <a class="btn" href="#">اقرأ المزيد</a>
-      </article>
-      <article class="post glass">
-        <h3>CSS Grid أم Flexbox؟</h3>
-        <p>متى تختار كل تقنية مع أمثلة سريعة.</p>
-        <a class="btn" href="#">اقرأ المزيد</a>
-      </article>
-    </div>
-  </section>
-
-  <!-- تواصل -->
-  <section class="glass" id="contact" style="padding:18px" data-aos="fade-up">
-    <div class="sect-head"><h2>تواصل معي</h2><span class="pill">Let's Talk</span></div>
-    <form action="https://formspree.io/f/your-id" method="POST">
-      <input name="name" placeholder="الاسم" required>
-      <input type="email" name="email" placeholder="البريد الإلكتروني" required>
-      <textarea name="message" placeholder="رسالتك" required></textarea>
-      <div class="cta">
-        <button class="btn primary" type="submit">إرسال</button>
-        <a class="btn" href="tel:+201002962162">اتصال مباشر</a>
-        <a class="btn" href="https://t.me/o_m_a_r_39" target="_blank" rel="noopener">تيليجرام</a>
-      </div>
-    </form>
-  </section>
-</main>
-
-<footer class="container">
-  <div class="glass" style="padding:12px;display:flex;align-items:center;justify-content:space-between">
-    <div style="display:flex;gap:10px;align-items:center">
-      <img src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" width="42" height="42" style="border-radius:50%" alt="Omar"/>
+  <!-- HERO -->
+  <section class="relative">
+    <div class="max-w-6xl mx-auto px-4 pt-14 pb-12 grid md:grid-cols-[1.1fr_.9fr] gap-10 items-center">
       <div>
-        <div style="font-weight:800">Omar AL Sayed Gabr</div>
-        <div style="font-size:12px;color:var(--muted)">© <span id="year"></span> — All rights reserved</div>
+        <span class="badge">Front‑End Developer</span>
+        <h1 class="title mt-3 text-4xl md:text-6xl font-extrabold leading-[1.1]">
+          أصمّم وأبني واجهات <span class="text-brand">سريعة وأنيقة</span>
+        </h1>
+        <p class="mt-3 text-sub text-lg">تجربة مستخدم مرتّبة، تفاصيل دقيقة، وأداء مُحسّن يخلي أي مشروع يبان Premium.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#projects" class="btn bg-brand text-[#081019]">استعراض الأعمال</a>
+          <a href="mailto:omargabraazz@gmail.com" class="btn">تواصل سريع</a>
+        </div>
+        <div class="mt-5 flex flex-wrap gap-2 text-sub">
+          <span class="chip">HTML</span><span class="chip">CSS/Tailwind</span><span class="chip">JavaScript</span><span class="chip">React</span>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="tilt lift card p-1">
+          <img class="rounded-[14px] w-full aspect-[4/3] object-cover" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="واجهة حديثة">
+        </div>
+        <video class="mt-4 rounded-xl w-full border border-borderc shadow-glow" src="https://files.catbox.moe/ngreh6.mp4" controls playsinline muted preload="metadata"></video>
       </div>
     </div>
-    <img alt="QR WhatsApp" width="60" height="60" src="https://api.qrserver.com/v1/create-qr-code/?size=60x60&data=https://wa.me/201146591742"/>
-  </div>
-</footer>
+  </section>
 
-  </div>  <!-- الصفحة 2: مفاهيم البرمجة -->  <div id="programming" class="page">
-    <header class="container" data-aos="fade-down">
-      <div class="glass" style="padding:16px;display:flex;align-items:center;justify-content:space-between;gap:10px">
-        <h1 class="title" style="margin:0">مفاهيم البرمجة</h1>
-        <a class="btn" href="#home" data-route>⬅ الرجوع للرئيسية</a>
+  <!-- PROJECTS -->
+  <section id="projects" class="max-w-6xl mx-auto px-4 py-14">
+    <div class="mb-8">
+      <h2 class="title text-2xl md:text-3xl font-extrabold">مشاريع مختارة</h2>
+      <p class="text-sub mt-1">تصاميم حديثة، بنية نظيفة، وتجربة استخدام محسّنة.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Dashboard -->
+      <article class="lift card overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" class="w-full h-44 object-cover" alt="لوحة معلومات">
+        <div class="p-4">
+          <h3 class="font-bold">لوحة معلومات تفاعلية</h3>
+          <p class="text-sub text-sm mt-1">إحصائيات فورية + رسومات SVG.</p>
+          <div class="mt-3 flex gap-2 text-xs"><span class="chip">React</span><span class="chip">Tailwind</span></div>
+        </div>
+      </article>
+
+      <!-- Personal site -->
+      <article class="lift card overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" class="w-full h-44 object-cover" alt="موقع شخصي">
+        <div class="p-4">
+          <h3 class="font-bold">موقع شخصي فائق السرعة</h3>
+          <p class="text-sub text-sm mt-1">نتيجة Lighthouse عالية + SEO جاهز.</p>
+          <div class="mt-3 flex gap-2 text-xs"><span class="chip">HTML</span><span class="chip">CSS</span></div>
+        </div>
+      </article>
+
+      <!-- E‑commerce -->
+      <article class="lift card overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1607083207263-328cc3f8709a?q=80&w=1200&auto=format&fit=crop" class="w-full h-44 object-cover" alt="واجهة متجر إلكتروني حديث">
+        <div class="p-4">
+          <h3 class="font-bold">واجهة متجر إلكتروني</h3>
+          <p class="text-sub text-sm mt-1">شبكة منتجات نظيفة وسلة بسيطة.</p>
+          <div class="mt-3 flex gap-2 text-xs"><span class="chip">JS</span><span class="chip">A11y</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="max-w-6xl mx-auto px-4 pb-14">
+    <h2 class="title text-2xl md:text-3xl font-extrabold">المهارات</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+      <div class="card p-5 lift"><div class="text-3xl font-extrabold">HTML/CSS</div><div class="text-sub mt-1">متقدم</div></div>
+      <div class="card p-5 lift"><div class="text-3xl font-extrabold">JavaScript</div><div class="text-sub mt-1">متقدم</div></div>
+      <div class="card p-5 lift"><div class="text-3xl font-extrabold">React</div><div class="text-sub mt-1">جيد جدًا</div></div>
+      <div class="card p-5 lift"><div class="text-3xl font-extrabold">UI/UX</div><div class="text-sub mt-1">جيد</div></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 pb-20">
+    <div class="card p-6 lift">
+      <h2 class="title text-2xl md:text-3xl font-extrabold">تواصل</h2>
+      <p class="text-sub mt-1">جاهز لأي تعاون أو فرصة.</p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a href="mailto:omargabraazz@gmail.com" class="btn">البريد</a>
+        <a href="tel:+201002962162" class="btn">اتصال</a>
+        <a href="https://wa.me/201146591742" class="btn" target="_blank" rel="noopener">واتساب</a>
+        <a href="https://t.me/o_m_a_r_39" class="btn" target="_blank" rel="noopener">تيليجرام</a>
       </div>
-    </header>
-    <main class="container">
-      <section class="glass" style="padding:18px;line-height:1.9;color:var(--fg)" data-aos="fade-up">
-        <p>البرمجة هي كتابة تعليمات منطقية للحاسوب لحل مشكلة أو تنفيذ مهمة. فيما يلي أساسيات يجب معرفتها كبداية.</p>
-        <h3 style="color:var(--accent-2);margin-top:16px">1) الخوارزميات Algorithms</h3>
-        <pre style="background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;overflow:auto"><code>ابدأ
-1) اغلي الماء
-2) ضع الشاي والسكر
-3) صب الماء وحرك
-4) اشرب الشاي
-انتهى</code></pre>
-        <h3 style="color:var(--accent-2)">2) المتغيرات Variables</h3>
-        <pre style="background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;overflow:auto"><code>// JavaScript
-let age = 20;
-age = age + 1; // أصبحت 21</code></pre>
-        <h3 style="color:var(--accent-2)">3) أنواع البيانات Data Types</h3>
-        <ul>
-          <li>Number — الأرقام</li>
-          <li>String — النصوص مثل "Hello"</li>
-          <li>Boolean — منطقي (true/false)</li>
-          <li>Array — مصفوفة: قائمة قيم</li>
-          <li>Object — كائن: مفاتيح وقيم</li>
-        </ul>
-        <h3 style="color:var(--accent-2)">4) الشروط Conditionals</h3>
-        <pre style="background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;overflow:auto"><code>// JavaScript
-const temp = 30;
-if (temp &gt; 25) {
-  console.log("الجو حار");
-} else {
-  console.log("الجو لطيف");
-}</code></pre>
-        <h3 style="color:var(--accent-2)">5) الحلقات Loops</h3>
-        <pre style="background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;overflow:auto"><code>// for
-for (let i = 1; i &lt;= 3; i++) {
-  console.log(i);
-}
-// while
-let n = 3;
-while (n &gt; 0) { console.log(n); n--; }</code></pre>
-        <h3 style="color:var(--accent-2)">6) الدوال Functions</h3>
-        <pre style="background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;overflow:auto"><code>function greet(name) {
-  return `مرحبا ${name}!`;
-}
-console.log(greet("Omar"));</code></pre>
-      </section>
-    </main>
-    <footer class="container">
-      <div class="glass" style="padding:12px;display:flex;align-items:center;justify-content:space-between">
-        <span style="color:var(--muted)">© <span id="year2"></span> — Programming Basics</span>
-        <a class="btn" href="#home" data-route>العودة</a>
+    </div>
+  </section>
+
+  <footer class="border-t border-borderc py-6 text-sm text-sub">
+    <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" class="w-8 h-8 rounded-full" alt="Omar">
+        <div>
+          <div class="text-text">Omar AL Sayed Gabr</div>
+          <div>طالب بكلية الهندسة — جامعة الزقازيق</div>
+        </div>
       </div>
-    </footer>
-  </div>  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>  <script>
-    // Particles
-    particlesJS('particles-js',{
-      particles:{number:{value:70}, color:{value:getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()||'#8b5cf6'}, shape:{type:'circle'}, opacity:{value:.5}, size:{value:3}, line_linked:{enable:true,distance:130,color:getComputedStyle(document.documentElement).getPropertyValue('--accent-2').trim()||'#06b6d4',opacity:.4,width:1}, move:{enable:true,speed:2}},
-      interactivity:{detect_on:'canvas',events:{onhover:{enable:true,mode:'repulse'},onclick:{enable:true,mode:'push'}},modes:{repulse:{distance:100},push:{particles_nb:4}}},
-      retina_detect:true
-    });
+      <div>© <span id="y"></span></div>
+    </div>
+  </footer>
 
-    // 3D tilt لصورة البورتريه في الرئيسية فقط
-    const face=document.querySelector('#home .face');
-    if(face){
-      face.parentElement.addEventListener('mousemove', (e)=>{
-        const r=e.currentTarget.getBoundingClientRect();
-        const x=e.clientX - r.left, y=e.clientY - r.top;
-        const rx = ((y/r.height)-.5)*-8; const ry = ((x/r.width)-.5)*8;
-        face.style.setProperty('--rx', rx+'deg');
-        face.style.setProperty('--ry', ry+'deg');
+  <!-- Minimal JS: particles, tilt, reveal -->
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // particles canvas – super light
+    const c = document.getElementById('p-canvas');
+    const ctx = c.getContext('2d');
+    let w, h, dots;
+    function resize(){ w = c.width = innerWidth; h = c.height = innerHeight; make(); }
+    function make(){
+      dots = Array.from({length: 60}, ()=>({ x: Math.random()*w, y: Math.random()*h, vx:(Math.random()-0.5)*0.4, vy:(Math.random()-0.5)*0.4 }));
+    }
+    function step(){
+      ctx.clearRect(0,0,w,h);
+      ctx.fillStyle = 'rgba(0,229,255,.6)';
+      ctx.strokeStyle = 'rgba(0,229,255,.25)';
+      for(const p of dots){
+        p.x += p.vx; p.y += p.vy;
+        if(p.x<0||p.x>w) p.vx*=-1;
+        if(p.y<0||p.y>h) p.vy*=-1;
+        ctx.beginPath(); ctx.arc(p.x,p.y,1.2,0,Math.PI*2); ctx.fill();
+      }
+      // lines
+      for(let i=0;i<dots.length;i++) for(let j=i+1;j<dots.length;j++){
+        const a=dots[i], b=dots[j];
+        const dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy);
+        if(d<110){ ctx.globalAlpha = 1-(d/110); ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); ctx.globalAlpha = 1; }
+      }
+      requestAnimationFrame(step);
+    }
+    addEventListener('resize', resize); resize(); step();
+
+    // simple tilt
+    document.querySelectorAll('.tilt').forEach(card=>{
+      const lim=8; let px=0,py=0;
+      card.addEventListener('pointermove',e=>{
+        const r=card.getBoundingClientRect();
+        px=((e.clientX-r.left)/r.width - .5)*2; py=((e.clientY-r.top)/r.height - .5)*2;
+        card.style.transform=`perspective(900px) rotateY(${px*lim}deg) rotateX(${-(py*lim)}deg)`;
       });
-      face.parentElement.addEventListener('mouseleave', ()=>{ face.style.setProperty('--rx','0deg'); face.style.setProperty('--ry','0deg'); });
-    }
-
-    // راوتر بسيط مبني على الهاش
-    const pages = [...document.querySelectorAll('.page')];
-    function showPageFromHash(){
-      const id = location.hash.replace('#','') || 'home';
-      pages.forEach(p=>p.classList.toggle('active', p.id===id));
-      window.scrollTo({top:0, behavior:'instant'});
-    }
-    window.addEventListener('hashchange', showPageFromHash);
-    showPageFromHash();
-
-    // تبديل اللغة
-    const T={ ar:{ heroTitle:'مطور واجهات <span class="grad">يبني تجارب ويب مذهلة</span>', heroSub:'طالب بكلية الهندسة – جامعة الزقازيق. شغوف ببناء مواقع سريعة، محسّنة، وذات تجربة مستخدم عالية.' }, en:{ heroTitle:'Frontend developer <span class="grad">crafting stunning web experiences</span>', heroSub:'Engineering student — Zagazig University. Passionate about fast, optimized, delightful web apps.' } };
-    const langBtn = document.getElementById('langToggle');
-    const titleEl = document.querySelector('#home .title');
-    const subEl = document.querySelector('#home .subtitle');
-    let lang=localStorage.getItem('lang')||'ar';
-    function applyLang(){
-      document.documentElement.lang = lang;
-      document.documentElement.dir = lang==='ar' ? 'rtl' : 'ltr';
-      titleEl.innerHTML = T[lang].heroTitle;
-      subEl.textContent = T[lang].heroSub;
-      langBtn.textContent = lang==='ar' ? 'AR / EN' : 'EN / AR';
-    }
-    applyLang();
-    langBtn.addEventListener('click', (e)=>{
-      e.preventDefault();
-      lang = lang==='ar' ? 'en' : 'ar';
-      localStorage.setItem('lang', lang);
-      applyLang();
+      card.addEventListener('pointerleave',()=>{ card.style.transform=''; });
     });
 
-    // تبديل الثيم (فاتح/داكن) + حفظ في LocalStorage
-    const themeBtn = document.getElementById('themeToggle');
-    function applyTheme(){
-      document.documentElement.setAttribute('data-theme', localStorage.getItem('theme')||'dark');
-    }
-    applyTheme();
-    themeBtn.addEventListener('click', ()=>{
-      const next = (localStorage.getItem('theme')||'dark')==='dark' ? 'light' : 'dark';
-      localStorage.setItem('theme', next); applyTheme();
+    // reveal on scroll
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('revealed'); io.unobserve(en.target);} });
+    }, {threshold:.12});
+    document.querySelectorAll('section .card, section article, .title').forEach(el=>{
+      el.classList.add('willreveal');
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(14px)';
+      io.observe(el);
     });
-
-    // عدادات الأرقام المتحركة
-    const counters = document.querySelectorAll('.num');
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          const el = e.target; const goal = +el.dataset.count; let v=0; const step=Math.max(1, Math.ceil(goal/60));
-          const t=setInterval(()=>{ v+=step; if(v>=goal){v=goal; clearInterval(t);} el.textContent=v; }, 20);
-          obs.unobserve(el);
-        }
-      });
-    },{threshold:.4});
-    counters.forEach(c=>obs.observe(c));
-
-    // سنوات
-    const y = new Date().getFullYear();
-    const y1 = document.getElementById('year');
-    const y2 = document.getElementById('year2');
-    if(y1) y1.textContent = y;
-    if(y2) y2.textContent = y;
-  </script></body>
-</html>
+    const style = document.createElement('style');
+    style.textContent = `.revealed{opacity:1 !important; transform:none !important; transition:.6s ease}`;
+    document.head.appendChild(style);
+  </script>
+</body>
+          </html>
+          
