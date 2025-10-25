@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Omar AL Sayed Gabr — Portfolio</title>
-  <meta name="description" content="بورتفوليو احترافي بعرض أعمال ومهارات عمر السيد جبر — مطوّر واجهات أمامية." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <title>Omar AL Sayed Gabr — Front‑End Portfolio</title>
+  <meta name="description" content="بورتفوليو احترافي يعرض أعمال ومهارات عمر السيد جبر — مطوّر واجهات أمامية. سرعة، أناقة، وتجربة مستخدم ممتازة." />
+  <meta name="theme-color" content="#0a0e14" />
+  <link rel="canonical" href="https://example.com/" />  <!-- Open Graph / Twitter -->  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Omar AL Sayed Gabr — Front‑End Portfolio" />
+  <meta property="og:description" content="تصاميم حديثة، أداء قوي، وتجربة مستخدم مرتّبة." />
+  <meta property="og:image" content="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />  <!-- Fonts & Icons -->  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">  <!-- Tailwind -->  <script src="https://cdn.tailwindcss.com"></script>  <script>
     tailwind.config = {
       theme: {
         extend: {
@@ -31,24 +33,16 @@
         }
       }
     }
-  </script>
-  <style>
+  </script>  <style>
     html,body{scroll-behavior:smooth}
-    /* Animated gradient mesh background */
-    .mesh {
-      position: fixed; inset: 0; z-index: -2; pointer-events: none;
-      background:
-        radial-gradient(900px 500px at 80% -10%, rgba(0,229,255,.15), transparent 60%),
-        radial-gradient(900px 500px at 20% 110%, rgba(94,243,255,.12), transparent 60%),
-        linear-gradient(180deg, #08101a, #0a0e14 40%);
-      animation: float 18s ease-in-out infinite;
-      filter: saturate(120%);
-    }
-    @keyframes float {
-      0%,100% { transform: translate3d(0,0,0) scale(1); }
-      50% { transform: translate3d(0,-10px,0) scale(1.01); }
-    }
-    /* Ultra subtle particles */
+    /* Mesh background */
+    .mesh {position: fixed; inset: 0; z-index: -2; pointer-events: none; background:
+      radial-gradient(900px 500px at 80% -10%, rgba(0,229,255,.15), transparent 60%),
+      radial-gradient(900px 500px at 20% 110%, rgba(94,243,255,.12), transparent 60%),
+      linear-gradient(180deg, #08101a, #0a0e14 40%);
+      animation: float 18s ease-in-out infinite; filter: saturate(120%);}
+    @keyframes float {0%,100%{transform:translate3d(0,0,0) scale(1)} 50%{transform:translate3d(0,-10px,0) scale(1.01)}}
+    /* Particles */
     #p-canvas { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
     /* Cards + micro‑interactions */
     .card { background: #0f1522; border: 1px solid #1b2332; border-radius: 16px; box-shadow: 0 2px 10px rgba(0,0,0,.25); }
@@ -60,123 +54,178 @@
     .chip { border:1px solid #233149; background:#0b1220; border-radius:999px; padding:.35rem .6rem; font-size:.72rem; color:#99a9bf }
     .btn { border:1px solid #2a3a52; border-radius:999px; padding:.8rem 1.1rem; font-weight:700 }
     .btn:hover { background:#00e5ff; color:#081019; box-shadow: 0 10px 30px rgba(0,229,255,.18) }
-    /* Section titles */
     .title { letter-spacing:.2px }
-    /* Accessibility focus */
     :focus-visible { outline: 2px solid #00e5ff; outline-offset: 2px; border-radius: 10px }
-  </style>
-</head>
-<body class="font-cairo bg-bg text-text selection:bg-brand/20 selection:text-text/90">
-  <div class="mesh" aria-hidden="true"></div>
-  <canvas id="p-canvas" aria-hidden="true"></canvas>
 
-  <!-- NAV -->
-  <header class="sticky top-0 z-40 backdrop-blur border-b border-borderc/80 bg-bg/70">
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .mesh { animation: none; }
+      .lift { transition: none; }
+    }
+  </style>  <!-- Schema.org Person -->  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Omar AL Sayed Gabr",
+    "jobTitle":"Front-End Developer",
+    "url":"https://example.com/",
+    "image":"https://i.postimg.cc/wB50GyR8/1734561223037.jpg",
+    "sameAs":["https://t.me/o_m_a_r_39"]
+  }
+  </script></head>
+<body class="font-cairo bg-bg text-text selection:bg-brand/20 selection:text-text/90">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:right-3 bg-brand text-[#081019] rounded px-3 py-2 z-50">تخطي إلى المحتوى</a>
+  <div class="mesh" aria-hidden="true"></div>
+  <canvas id="p-canvas" aria-hidden="true"></canvas>  <!-- NAV -->  <header class="sticky top-0 z-40 backdrop-blur border-b border-borderc/80 bg-bg/70">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
-      <img src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" class="w-9 h-9 rounded-full ring-2 ring-brand/30" alt="Omar">
-      <nav class="ml-auto flex items-center gap-2 text-sm">
-        <a class="btn" href="#projects">المشاريع</a>
-        <a class="btn" href="#skills">المهارات</a>
-        <a class="btn" href="#contact">تواصل</a>
+      <img src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" class="w-9 h-9 rounded-full ring-2 ring-brand/30" alt="Omar" loading="eager" fetchpriority="high" decoding="async">
+      <nav class="ml-auto flex items-center gap-2 text-sm" aria-label="التنقل الرئيسي">
+        <a class="btn navlink" href="#projects">المشاريع</a>
+        <a class="btn navlink" href="#skills">المهارات</a>
+        <a class="btn navlink" href="#contact">تواصل</a>
+        <a class="btn navlink" href="#about">نبذة</a>
       </nav>
     </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="relative">
-    <div class="max-w-6xl mx-auto px-4 pt-14 pb-12 grid md:grid-cols-[1.1fr_.9fr] gap-10 items-center">
-      <div>
-        <span class="badge">Front‑End Developer</span>
-        <h1 class="title mt-3 text-4xl md:text-6xl font-extrabold leading-[1.1]">
-          أصمّم وأبني واجهات <span class="text-brand">سريعة وأنيقة</span>
-        </h1>
-        <p class="mt-3 text-sub text-lg">تجربة مستخدم مرتّبة، تفاصيل دقيقة، وأداء مُحسّن يخلي أي مشروع يبان Premium.</p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#projects" class="btn bg-brand text-[#081019]">استعراض الأعمال</a>
-          <a href="mailto:omargabraazz@gmail.com" class="btn">تواصل سريع</a>
+  </header>  <main id="main" tabindex="-1">
+    <!-- HERO -->
+    <section class="relative">
+      <div class="max-w-6xl mx-auto px-4 pt-14 pb-12 grid md:grid-cols-[1.1fr_.9fr] gap-10 items-center">
+        <div>
+          <span class="badge">Front‑End Developer</span>
+          <h1 class="title mt-3 text-4xl md:text-6xl font-extrabold leading-[1.1]">
+            أصمّم وأبني واجهات <span class="text-brand">سريعة وأنيقة</span>
+          </h1>
+          <p class="mt-3 text-sub text-lg">تجربة مستخدم مرتّبة، تفاصيل دقيقة، وأداء مُحسّن يخلي أي مشروع يبان Premium.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#projects" class="btn bg-brand text-[#081019]">استعراض الأعمال</a>
+            <a href="mailto:omargabraazz@gmail.com" class="btn" aria-label="تواصل عبر البريد">تواصل سريع</a>
+            <a href="#cv" class="btn" aria-label="تحميل السيرة الذاتية">السيرة الذاتية (PDF)</a>
+          </div>
+          <ul class="mt-5 flex flex-wrap gap-2 text-sub" aria-label="التقنيات المستخدمة">
+            <li class="chip">HTML</li><li class="chip">CSS/Tailwind</li><li class="chip">JavaScript</li><li class="chip">React</li>
+          </ul>
         </div>
-        <div class="mt-5 flex flex-wrap gap-2 text-sub">
-          <span class="chip">HTML</span><span class="chip">CSS/Tailwind</span><span class="chip">JavaScript</span><span class="chip">React</span>
+        <div class="relative">
+          <div class="tilt lift card p-1">
+            <img class="rounded-[14px] w-full aspect-[4/3] object-cover" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="واجهة حديثة" loading="eager" fetchpriority="high" decoding="async">
+          </div>
+          <video class="mt-4 rounded-xl w-full border border-borderc shadow-glow" src="https://files.catbox.moe/ngreh6.mp4" controls playsinline muted preload="metadata" aria-label="فيديو استعراض أعمال"></video>
         </div>
       </div>
-      <div class="relative">
-        <div class="tilt lift card p-1">
-          <img class="rounded-[14px] w-full aspect-[4/3] object-cover" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="واجهة حديثة">
+    </section><!-- ABOUT -->
+<section id="about" class="max-w-6xl mx-auto px-4 py-6">
+  <div class="grid md:grid-cols-2 gap-6 items-stretch">
+    <article class="card p-6 lift">
+      <h2 class="title text-2xl md:text-3xl font-extrabold">نبذة</h2>
+      <p class="text-sub mt-2 leading-8">طالب بكلية الهندسة — جامعة الزقازيق. مركز على بناء واجهات سريعة، يسهل صيانتها، مع كتابة كود نظيف وقابل للتوسّع. أحب تحسين الأداء (Lighthouse, Core Web Vitals) والاهتمام بالتفاصيل الصغيرة التي تفرق مع المستخدم.</p>
+      <ul class="mt-4 grid sm:grid-cols-2 gap-2 text-sm text-sub">
+        <li>⚡ تحسين الأداء وقياسات <span class="text-text">Lighthouse</span></li>
+        <li>🧩 مكوّنات واجهة قابلة لإعادة الاستخدام</li>
+        <li>♿ إمكانية الوصول (A11y)</li>
+        <li>🧪 اختبارات واجهة أساسية</li>
+      </ul>
+    </article>
+    <aside class="card p-6 lift">
+      <h3 class="title text-xl font-extrabold">أرقام سريعة</h3>
+      <div class="mt-3 grid grid-cols-3 gap-3 text-center">
+        <div>
+          <div class="text-3xl font-extrabold">95+</div>
+          <div class="text-sub text-xs">Lighthouse Perf</div>
         </div>
-        <video class="mt-4 rounded-xl w-full border border-borderc shadow-glow" src="https://files.catbox.moe/ngreh6.mp4" controls playsinline muted preload="metadata"></video>
+        <div>
+          <div class="text-3xl font-extrabold">20+</div>
+          <div class="text-sub text-xs">مكوّنات UI</div>
+        </div>
+        <div>
+          <div class="text-3xl font-extrabold">5</div>
+          <div class="text-sub text-xs">مشاريع رئيسية</div>
+        </div>
       </div>
-    </div>
-  </section>
+    </aside>
+  </div>
+</section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="max-w-6xl mx-auto px-4 py-14">
-    <div class="mb-8">
-      <h2 class="title text-2xl md:text-3xl font-extrabold">مشاريع مختارة</h2>
-      <p class="text-sub mt-1">تصاميم حديثة، بنية نظيفة، وتجربة استخدام محسّنة.</p>
-    </div>
+<!-- PROJECTS -->
+<section id="projects" class="max-w-6xl mx-auto px-4 py-14">
+  <div class="mb-8">
+    <h2 class="title text-2xl md:text-3xl font-extrabold">مشاريع مختارة</h2>
+    <p class="text-sub mt-1">تصاميم حديثة، بنية نظيفة، وتجربة استخدام محسّنة.</p>
+  </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Dashboard -->
-      <article class="lift card overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" class="w-full h-44 object-cover" alt="لوحة معلومات">
-        <div class="p-4">
-          <h3 class="font-bold">لوحة معلومات تفاعلية</h3>
-          <p class="text-sub text-sm mt-1">إحصائيات فورية + رسومات SVG.</p>
-          <div class="mt-3 flex gap-2 text-xs"><span class="chip">React</span><span class="chip">Tailwind</span></div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Dashboard -->
+    <article class="lift card overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" class="w-full h-44 object-cover" alt="لوحة معلومات" loading="lazy" decoding="async">
+      <div class="p-4">
+        <h3 class="font-bold">لوحة معلومات تفاعلية</h3>
+        <p class="text-sub text-sm mt-1">إحصائيات فورية + رسومات SVG.</p>
+        <div class="mt-3 flex gap-2 text-xs"><span class="chip">React</span><span class="chip">Tailwind</span></div>
+        <div class="mt-3 flex gap-3 text-sm">
+          <a href="#" class="btn" aria-label="عرض المشروع الحي">Live</a>
+          <a href="#" class="btn" aria-label="عرض الكود على GitHub">GitHub</a>
         </div>
-      </article>
-
-      <!-- Personal site -->
-      <article class="lift card overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" class="w-full h-44 object-cover" alt="موقع شخصي">
-        <div class="p-4">
-          <h3 class="font-bold">موقع شخصي فائق السرعة</h3>
-          <p class="text-sub text-sm mt-1">نتيجة Lighthouse عالية + SEO جاهز.</p>
-          <div class="mt-3 flex gap-2 text-xs"><span class="chip">HTML</span><span class="chip">CSS</span></div>
-        </div>
-      </article>
-
-      <!-- E‑commerce -->
-      <article class="lift card overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1607083207263-328cc3f8709a?q=80&w=1200&auto=format&fit=crop" class="w-full h-44 object-cover" alt="واجهة متجر إلكتروني حديث">
-        <div class="p-4">
-          <h3 class="font-bold">واجهة متجر إلكتروني</h3>
-          <p class="text-sub text-sm mt-1">شبكة منتجات نظيفة وسلة بسيطة.</p>
-          <div class="mt-3 flex gap-2 text-xs"><span class="chip">JS</span><span class="chip">A11y</span></div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="max-w-6xl mx-auto px-4 pb-14">
-    <h2 class="title text-2xl md:text-3xl font-extrabold">المهارات</h2>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-      <div class="card p-5 lift"><div class="text-3xl font-extrabold">HTML/CSS</div><div class="text-sub mt-1">متقدم</div></div>
-      <div class="card p-5 lift"><div class="text-3xl font-extrabold">JavaScript</div><div class="text-sub mt-1">متقدم</div></div>
-      <div class="card p-5 lift"><div class="text-3xl font-extrabold">React</div><div class="text-sub mt-1">جيد جدًا</div></div>
-      <div class="card p-5 lift"><div class="text-3xl font-extrabold">UI/UX</div><div class="text-sub mt-1">جيد</div></div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="max-w-6xl mx-auto px-4 pb-20">
-    <div class="card p-6 lift">
-      <h2 class="title text-2xl md:text-3xl font-extrabold">تواصل</h2>
-      <p class="text-sub mt-1">جاهز لأي تعاون أو فرصة.</p>
-      <div class="mt-4 flex flex-wrap gap-3">
-        <a href="mailto:omargabraazz@gmail.com" class="btn">البريد</a>
-        <a href="tel:+201002962162" class="btn">اتصال</a>
-        <a href="https://wa.me/201146591742" class="btn" target="_blank" rel="noopener">واتساب</a>
-        <a href="https://t.me/o_m_a_r_39" class="btn" target="_blank" rel="noopener">تيليجرام</a>
       </div>
-    </div>
-  </section>
+    </article>
 
-  <footer class="border-t border-borderc py-6 text-sm text-sub">
+    <!-- Personal site -->
+    <article class="lift card overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" class="w-full h-44 object-cover" alt="موقع شخصي" loading="lazy" decoding="async">
+      <div class="p-4">
+        <h3 class="font-bold">موقع شخصي فائق السرعة</h3>
+        <p class="text-sub text-sm mt-1">نتيجة Lighthouse عالية + SEO جاهز.</p>
+        <div class="mt-3 flex gap-2 text-xs"><span class="chip">HTML</span><span class="chip">CSS</span></div>
+        <div class="mt-3 flex gap-3 text-sm">
+          <a href="#" class="btn">Live</a>
+          <a href="#" class="btn">GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- E‑commerce -->
+    <article class="lift card overflow-hidden">
+      <img src="https://i.postimg.cc/3xH16JzJ/Screenshot-2025-10-25-15-32-35-489-edit-com-instagram-android.jpg" class="w-full h-44 object-cover" alt="واجهة متجر إلكتروني حديث" loading="lazy" decoding="async">
+      <div class="p-4">
+        <h3 class="font-bold">واجهة متجر إلكتروني</h3>
+        <p class="text-sub text-sm mt-1">شبكة منتجات نظيفة وسلة بسيطة.</p>
+        <div class="mt-3 flex gap-2 text-xs"><span class="chip">JS</span><span class="chip">A11y</span></div>
+        <div class="mt-3 flex gap-3 text-sm">
+          <a href="#" class="btn">Live</a>
+          <a href="#" class="btn">GitHub</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="max-w-6xl mx-auto px-4 pb-14">
+  <h2 class="title text-2xl md:text-3xl font-extrabold">المهارات</h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+    <div class="card p-5 lift"><div class="text-3xl font-extrabold">HTML/CSS</div><div class="text-sub mt-1">متقدم</div></div>
+    <div class="card p-5 lift"><div class="text-3xl font-extrabold">JavaScript</div><div class="text-sub mt-1">متقدم</div></div>
+    <div class="card p-5 lift"><div class="text-3xl font-extrabold">React</div><div class="text-sub mt-1">جيد جدًا</div></div>
+    <div class="card p-5 lift"><div class="text-3xl font-extrabold">UI/UX</div><div class="text-sub mt-1">جيد</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="max-w-6xl mx-auto px-4 pb-20">
+  <div class="card p-6 lift">
+    <h2 class="title text-2xl md:text-3xl font-extrabold">تواصل</h2>
+    <p class="text-sub mt-1">جاهز لأي تعاون أو فرصة.</p>
+    <div class="mt-4 flex flex-wrap gap-3">
+      <a href="mailto:omargabraazz@gmail.com" class="btn">البريد</a>
+      <a href="tel:+201002962162" class="btn">اتصال</a>
+      <a href="https://wa.me/201146591742" class="btn" target="_blank" rel="noopener">واتساب</a>
+      <a href="https://t.me/o_m_a_r_39" class="btn" target="_blank" rel="noopener">تيليجرام</a>
+    </div>
+  </div>
+</section>
+
+  </main>  <footer class="border-t border-borderc py-6 text-sm text-sub">
     <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <img src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" class="w-8 h-8 rounded-full" alt="Omar">
+        <img src="https://i.postimg.cc/wB50GyR8/1734561223037.jpg" class="w-8 h-8 rounded-full" alt="Omar" loading="lazy" decoding="async">
         <div>
           <div class="text-text">Omar AL Sayed Gabr</div>
           <div>طالب بكلية الهندسة — جامعة الزقازيق</div>
@@ -184,66 +233,87 @@
       </div>
       <div>© <span id="y"></span></div>
     </div>
-  </footer>
-
-  <!-- Minimal JS: particles, tilt, reveal -->
-  <script>
+  </footer>  <!-- Minimal JS: particles, tilt, reveal, active nav -->  <script defer>
     // year
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', () => {
+      const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+    });
 
-    // particles canvas – super light
-    const c = document.getElementById('p-canvas');
-    const ctx = c.getContext('2d');
-    let w, h, dots;
-    function resize(){ w = c.width = innerWidth; h = c.height = innerHeight; make(); }
-    function make(){
-      dots = Array.from({length: 60}, ()=>({ x: Math.random()*w, y: Math.random()*h, vx:(Math.random()-0.5)*0.4, vy:(Math.random()-0.5)*0.4 }));
-    }
-    function step(){
-      ctx.clearRect(0,0,w,h);
-      ctx.fillStyle = 'rgba(0,229,255,.6)';
-      ctx.strokeStyle = 'rgba(0,229,255,.25)';
-      for(const p of dots){
-        p.x += p.vx; p.y += p.vy;
-        if(p.x<0||p.x>w) p.vx*=-1;
-        if(p.y<0||p.y>h) p.vy*=-1;
-        ctx.beginPath(); ctx.arc(p.x,p.y,1.2,0,Math.PI*2); ctx.fill();
-      }
-      // lines
-      for(let i=0;i<dots.length;i++) for(let j=i+1;j<dots.length;j++){
-        const a=dots[i], b=dots[j];
-        const dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy);
-        if(d<110){ ctx.globalAlpha = 1-(d/110); ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); ctx.globalAlpha = 1; }
-      }
-      requestAnimationFrame(step);
-    }
-    addEventListener('resize', resize); resize(); step();
+    // particles canvas – super light (skips if reduced motion)
+    (()=>{
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const c = document.getElementById('p-canvas'); if (!c) return;
+      const ctx = c.getContext('2d');
+      let w, h, dots;
+      const resize = ()=>{ w = c.width = innerWidth; h = c.height = innerHeight; dots = Array.from({length: 60}, ()=>({ x: Math.random()*w, y: Math.random()*h, vx:(Math.random()-0.5)*0.4, vy:(Math.random()-0.5)*0.4 })); };
+      const step = ()=>{
+        ctx.clearRect(0,0,w,h);
+        ctx.fillStyle = 'rgba(0,229,255,.6)';
+        ctx.strokeStyle = 'rgba(0,229,255,.25)';
+        for(const p of dots){
+          p.x += p.vx; p.y += p.vy;
+          if(p.x<0||p.x>w) p.vx*=-1;
+          if(p.y<0||p.y>h) p.vy*=-1;
+          ctx.beginPath(); ctx.arc(p.x,p.y,1.2,0,Math.PI*2); ctx.fill();
+        }
+        for(let i=0;i<dots.length;i++) for(let j=i+1;j<dots.length;j++){
+          const a=dots[i], b=dots[j];
+          const dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy);
+          if(d<110){ ctx.globalAlpha = 1-(d/110); ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); ctx.globalAlpha = 1; }
+        }
+        requestAnimationFrame(step);
+      };
+      addEventListener('resize', resize, {passive:true});
+      resize(); step();
+    })();
 
     // simple tilt
-    document.querySelectorAll('.tilt').forEach(card=>{
+    (()=>{
+      const cards = document.querySelectorAll('.tilt');
       const lim=8; let px=0,py=0;
-      card.addEventListener('pointermove',e=>{
-        const r=card.getBoundingClientRect();
-        px=((e.clientX-r.left)/r.width - .5)*2; py=((e.clientY-r.top)/r.height - .5)*2;
-        card.style.transform=`perspective(900px) rotateY(${px*lim}deg) rotateX(${-(py*lim)}deg)`;
+      cards.forEach(card=>{
+        card.addEventListener('pointermove',e=>{
+          const r=card.getBoundingClientRect();
+          px=((e.clientX-r.left)/r.width - .5)*2; py=((e.clientY-r.top)/r.height - .5)*2;
+          card.style.transform=`perspective(900px) rotateY(${px*lim}deg) rotateX(${-(py*lim)}deg)`;
+        });
+        card.addEventListener('pointerleave',()=>{ card.style.transform=''; });
       });
-      card.addEventListener('pointerleave',()=>{ card.style.transform=''; });
-    });
+    })();
 
     // reveal on scroll
-    const io = new IntersectionObserver(entries=>{
-      entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('revealed'); io.unobserve(en.target);} });
-    }, {threshold:.12});
-    document.querySelectorAll('section .card, section article, .title').forEach(el=>{
-      el.classList.add('willreveal');
-      el.style.opacity = 0;
-      el.style.transform = 'translateY(14px)';
-      io.observe(el);
-    });
-    const style = document.createElement('style');
-    style.textContent = `.revealed{opacity:1 !important; transform:none !important; transition:.6s ease}`;
-    document.head.appendChild(style);
-  </script>
-</body>
-          </html>
-          
+    (()=>{
+      const io = new IntersectionObserver(entries=>{
+        entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('revealed'); io.unobserve(en.target);} });
+      }, {threshold:.12});
+      document.querySelectorAll('section .card, section article, .title').forEach(el=>{
+        el.classList.add('willreveal');
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(14px)';
+        io.observe(el);
+      });
+      const style = document.createElement('style');
+      style.textContent = `.revealed{opacity:1 !important; transform:none !important; transition:.6s ease}`;
+      document.head.appendChild(style);
+    })();
+
+    // active nav link highlight
+    (()=>{
+      const links = Array.from(document.querySelectorAll('.navlink'));
+      const ids = links.map(a=>a.getAttribute('href')).filter(Boolean).map(h=>h.replace('#',''));
+      const sections = ids.map(id=>document.getElementById(id)).filter(Boolean);
+      const reset = ()=>links.forEach(l=>l.classList.remove('bg-brand','text-[#081019]'));
+      const obs = new IntersectionObserver((ents)=>{
+        ents.forEach(en=>{
+          if (en.isIntersecting) {
+            const id = en.target.id;
+            reset();
+            const active = links.find(l=>l.getAttribute('href') === `#${id}`);
+            if (active) active.classList.add('bg-brand','text-[#081019]');
+          }
+        });
+      }, {rootMargin:'-40% 0px -55% 0px', threshold:0});
+      sections.forEach(sec=>sec && obs.observe(sec));
+    })();
+  </script></body>
+</html>
